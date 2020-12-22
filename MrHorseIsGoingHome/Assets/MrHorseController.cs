@@ -38,5 +38,11 @@ public class MrHorseController : MonoBehaviour
         }
 
         rb.velocity = new Vector2(horizontal * speed, 0);
+
+        // Fire
+        if(Input.GetButtonDown("Jump"))
+        {
+            animator.SetTrigger("bite");
+        }
     }
 }

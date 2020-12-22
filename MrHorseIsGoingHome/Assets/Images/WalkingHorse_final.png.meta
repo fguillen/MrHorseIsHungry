@@ -29,6 +29,36 @@ TextureImporter:
   - first:
       213: 4139672801395444651
     second: WalkingHorse_final_8
+  - first:
+      213: 1946057894584777758
+    second: WalkingHorse_final_9
+  - first:
+      213: 4316675033976861925
+    second: WalkingHorse_final_10
+  - first:
+      213: 5281325913121421716
+    second: WalkingHorse_final_11
+  - first:
+      213: 8993811970964303287
+    second: WalkingHorse_final_12
+  - first:
+      213: 137393459165161324
+    second: WalkingHorse_final_13
+  - first:
+      213: 7619262162460997313
+    second: WalkingHorse_final_14
+  - first:
+      213: 1969050017948512678
+    second: WalkingHorse_final_15
+  - first:
+      213: 2302778101838141877
+    second: WalkingHorse_final_16
+  - first:
+      213: 5946635989486365241
+    second: WalkingHorse_final_17
+  - first:
+      213: 5147174852089220936
+    second: WalkingHorse_final_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -334,6 +364,216 @@ TextureImporter:
       bones: []
       spriteID: bab858dda72137930800000000000000
       internalID: 4139672801395444651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_9
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 570
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1cf11f2859c10b10800000000000000
+      internalID: 1946057894584777758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_10
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 570
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4fcfa9219e7eb30800000000000000
+      internalID: 4316675033976861925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499faa2bfe90b4940800000000000000
+      internalID: 5281325913121421716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_12
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bdabf9165070dc70800000000000000
+      internalID: 8993811970964303287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_13
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6760088f9e18e100800000000000000
+      internalID: 137393459165161324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_14
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6ff04719e0db960800000000000000
+      internalID: 7619262162460997313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_15
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a13cc01f88735b10800000000000000
+      internalID: 1969050017948512678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_16
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b95c94ab7c15ff10800000000000000
+      internalID: 2302778101838141877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_17
+      rect:
+        serializedVersion: 2
+        x: 2640
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a63e10de1b68250800000000000000
+      internalID: 5946635989486365241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkingHorse_final_18
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 0
+        width: 440
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f0a9fc1407e6740800000000000000
+      internalID: 5147174852089220936
       vertices: []
       indices: 
       edges: []
