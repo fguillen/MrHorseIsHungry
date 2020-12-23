@@ -47,6 +47,9 @@ TagManager:
   - name: Buildings
     uniqueID: 827001915
     locked: 0
+  - name: Characters
+    uniqueID: 134228419
+    locked: 0
   - name: MrFox
     uniqueID: 1965515495
     locked: 0
