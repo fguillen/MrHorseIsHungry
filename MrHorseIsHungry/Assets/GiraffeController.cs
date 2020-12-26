@@ -44,7 +44,7 @@ public class GiraffeController : MonoBehaviour
 
     void OfferApple()
     {
-        animator.SetBool("iddle", false);
+        animator.SetBool("idle", false);
         animator.SetTrigger("offeringApple");
     }
 
@@ -99,10 +99,10 @@ public class GiraffeController : MonoBehaviour
                 apple.sprite = appleBites0;
                 break;
             case 1:
-                apple.sprite = appleBites0;
+                apple.sprite = appleBites1;
                 break;
             case 2:
-                apple.sprite = appleBites0;
+                apple.sprite = appleBites2;
                 break;
             default:
                 throw new ArgumentException("Wrong number of bites: " + numOfBites);
@@ -124,6 +124,6 @@ public class GiraffeController : MonoBehaviour
 
     void Idle()
     {
-        animator.SetBool("iddle", true);
+        animator.SetBool("idle", true);
     }
 }
