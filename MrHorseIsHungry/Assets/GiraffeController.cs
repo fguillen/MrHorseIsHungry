@@ -23,6 +23,8 @@ public class GiraffeController : MonoBehaviour
     int numOfApplesInCest;
     int numOfBites;
 
+    string state;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +32,13 @@ public class GiraffeController : MonoBehaviour
         numOfApplesInCest = 5;
         numOfBites = 0;
         RenderApplesInCest();
+        Idle();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Fire
-        if(Input.GetButtonDown("Jump"))
+        if(IsIdle() && SomeAppleMissingInCest() && Input.GetButtonDown("Jump"))
         {
             OfferApple();
         }
@@ -46,6 +48,7 @@ public class GiraffeController : MonoBehaviour
     {
         animator.SetBool("idle", false);
         animator.SetTrigger("offeringApple");
+        state = "offeringApple";
     }
 
     public void TakeAppleFromCest()
@@ -124,6 +127,17 @@ public class GiraffeController : MonoBehaviour
 
     void Idle()
     {
+        state = "idle";
         animator.SetBool("idle", true);
+    }
+
+    bool IsIdle()
+    {
+        return state == "idle";
+    }
+
+    bool SomeAppleMissingInCest()
+    {
+        return numOfApplesInCest > 0;
     }
 }
