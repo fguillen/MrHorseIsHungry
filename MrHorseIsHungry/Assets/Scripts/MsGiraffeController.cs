@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class GiraffeController : MonoBehaviour
+public class MsGiraffeController : MonoBehaviour
 {
     Animator animator;
     [SerializeField] Sprite applesCest5;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectsReferrer : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GiraffeController girafferController;
+    public MsGiraffeController msGirafferController;
     public static ObjectsReferrer instance;
     
     void Awake()
