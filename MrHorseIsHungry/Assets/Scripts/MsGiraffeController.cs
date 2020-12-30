@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MsGiraffeController : MonoBehaviour
 {
+    [SerializeField] MsGiraffeBubblesController bubblesController;
     Animator animator;
     [SerializeField] Sprite applesCest5;
     [SerializeField] Sprite applesCest4;
@@ -20,15 +21,16 @@ public class MsGiraffeController : MonoBehaviour
 
 
 
-    int numOfApplesInCest;
-    int numOfBites;
+    [SerializeField] int numOfApplesInCest;
+    [SerializeField] int numOfBites;
 
-    string state;
+    [SerializeField] string state;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        bubblesController = GetComponent<MsGiraffeBubblesController>();
         numOfApplesInCest = 5;
         numOfBites = 0;
         RenderApplesInCest();
@@ -38,13 +40,13 @@ public class MsGiraffeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsIdle() && SomeAppleMissingInCest() && Input.GetButtonDown("Jump"))
-        {
-            OfferApple();
-        }
+        // if(IsIdle() && SomeAppleMissingInCest() && Input.GetButtonDown("Jump"))
+        // {
+        //     OfferApple();
+        // }
     }
 
-    void OfferApple()
+    public void OfferApple()
     {
         animator.SetBool("idle", false);
         animator.SetTrigger("offeringApple");
@@ -121,14 +123,22 @@ public class MsGiraffeController : MonoBehaviour
             RenderApple();
         } else
         {
+            apple.sprite = null;
             Idle();
+            bubblesController.NextStep();
         }
     }
 
-    void Idle()
+    public void Idle()
     {
         state = "idle";
         animator.SetBool("idle", true);
+    }
+
+    public void Talk()
+    {
+        state = "talking";
+        animator.SetTrigger("talking");
     }
 
     bool IsIdle()
@@ -136,8 +146,27 @@ public class MsGiraffeController : MonoBehaviour
         return state == "idle";
     }
 
+    public bool IsTalking()
+    {
+        return state == "talking";
+    }
+
     bool SomeAppleMissingInCest()
     {
         return numOfApplesInCest > 0;
     }
+
+    public void ContinueTalking()
+    {
+        if(
+            ObjectsReferrer.instance.msGiraffeBubblesController.step != 9 &&
+            ObjectsReferrer.instance.msGiraffeBubblesController.step != 13 &&
+            ObjectsReferrer.instance.msGiraffeBubblesController.step != 15
+        )
+        {
+            bubblesController.NextStep();
+        }
+    }
+
+
 }

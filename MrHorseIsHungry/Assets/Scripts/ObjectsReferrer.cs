@@ -5,7 +5,8 @@ using UnityEngine;
 public class ObjectsReferrer : MonoBehaviour
 {
     // Start is called before the first frame update
-    public MsGiraffeController msGirafferController;
+    public MsGiraffeController msGiraffeController;
+    public MsGiraffeBubblesController msGiraffeBubblesController;
     public static ObjectsReferrer instance;
     
     void Awake()

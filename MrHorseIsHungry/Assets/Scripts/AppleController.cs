@@ -9,7 +9,7 @@ public class AppleController : MonoBehaviour
         if(other.gameObject.CompareTag("MrHorseMouth"))
         {
             print("Bitten");
-            ObjectsReferrer.instance.msGirafferController.AppleBitten();
+            ObjectsReferrer.instance.msGiraffeController.AppleBitten();
         }
     }
 }
