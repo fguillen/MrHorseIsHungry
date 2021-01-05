@@ -7,6 +7,7 @@ public class ObjectsReferrer : MonoBehaviour
     // Start is called before the first frame update
     public MsGiraffeController msGiraffeController;
     public MsGiraffeBubblesController msGiraffeBubblesController;
+    public MrElephantController mrElephantController;
     public static ObjectsReferrer instance;
     
     void Awake()
