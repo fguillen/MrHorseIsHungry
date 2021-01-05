@@ -62,6 +62,30 @@ TextureImporter:
   - first:
       213: 4159145210324328387
     second: MrElefant_final_19
+  - first:
+      213: 2899157582343728969
+    second: MrElefant_final_20
+  - first:
+      213: -5506158487495060471
+    second: MrElefant_final_21
+  - first:
+      213: -853364129702055523
+    second: MrElefant_final_22
+  - first:
+      213: -2928604326869459975
+    second: MrElefant_final_23
+  - first:
+      213: -7695826132254667791
+    second: MrElefant_final_24
+  - first:
+      213: -8507158139119834069
+    second: MrElefant_final_25
+  - first:
+      213: -1361159371653771875
+    second: MrElefant_final_26
+  - first:
+      213: -6065654800368549629
+    second: MrElefant_final_27
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -186,9 +210,9 @@ TextureImporter:
       name: MrElefant_final_0
       rect:
         serializedVersion: 2
-        x: 40
+        x: 33
         y: 3218
-        width: 496
+        width: 503
         height: 848
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -207,10 +231,10 @@ TextureImporter:
       name: MrElefant_final_1
       rect:
         serializedVersion: 2
-        x: 603
-        y: 3218
-        width: 495
-        height: 848
+        x: 597
+        y: 3221
+        width: 500
+        height: 840
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +252,10 @@ TextureImporter:
       name: MrElefant_final_2
       rect:
         serializedVersion: 2
-        x: 1156
-        y: 3218
-        width: 495
-        height: 848
+        x: 1155
+        y: 3213
+        width: 488
+        height: 849
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +294,10 @@ TextureImporter:
       name: MrElefant_final_4
       rect:
         serializedVersion: 2
-        x: 1788
-        y: 3598
-        width: 273
-        height: 217
+        x: 1823
+        y: 3593
+        width: 241
+        height: 203
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +315,10 @@ TextureImporter:
       name: MrElefant_final_5
       rect:
         serializedVersion: 2
-        x: 1788
-        y: 3328
-        width: 273
-        height: 217
+        x: 1865
+        y: 3326
+        width: 194
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +336,10 @@ TextureImporter:
       name: MrElefant_final_6
       rect:
         serializedVersion: 2
-        x: 1788
-        y: 3071
-        width: 273
-        height: 217
+        x: 1911
+        y: 3067
+        width: 151
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,10 +378,10 @@ TextureImporter:
       name: MrElefant_final_8
       rect:
         serializedVersion: 2
-        x: 876
-        y: 2844
+        x: 967
+        y: 2830
         width: 211
-        height: 203
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -375,10 +399,10 @@ TextureImporter:
       name: MrElefant_final_9
       rect:
         serializedVersion: 2
-        x: 1625
-        y: 2849
-        width: 211
-        height: 198
+        x: 1564
+        y: 2848
+        width: 229
+        height: 197
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -417,10 +441,10 @@ TextureImporter:
       name: MrElefant_final_11
       rect:
         serializedVersion: 2
-        x: 854
-        y: 1675
-        width: 478
-        height: 1100
+        x: 834
+        y: 1677
+        width: 519
+        height: 1092
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,10 +462,10 @@ TextureImporter:
       name: MrElefant_final_12
       rect:
         serializedVersion: 2
-        x: 1611
-        y: 1675
-        width: 478
-        height: 1100
+        x: 1522
+        y: 1680
+        width: 587
+        height: 1085
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,10 +483,10 @@ TextureImporter:
       name: MrElefant_final_13
       rect:
         serializedVersion: 2
-        x: 145
-        y: 1298
-        width: 243
-        height: 240
+        x: 259
+        y: 1305
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,10 +504,10 @@ TextureImporter:
       name: MrElefant_final_14
       rect:
         serializedVersion: 2
-        x: 914
-        y: 1299
-        width: 243
-        height: 239
+        x: 955
+        y: 1291
+        width: 247
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -501,10 +525,10 @@ TextureImporter:
       name: MrElefant_final_15
       rect:
         serializedVersion: 2
-        x: 1721
-        y: 1302
-        width: 243
-        height: 236
+        x: 1640
+        y: 1296
+        width: 246
+        height: 234
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -522,9 +546,9 @@ TextureImporter:
       name: MrElefant_final_16
       rect:
         serializedVersion: 2
-        x: 102
-        y: 89
-        width: 629
+        x: 202
+        y: 86
+        width: 479
         height: 1099
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -544,9 +568,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 824
-        y: 89
-        width: 625
-        height: 1136
+        y: 96
+        width: 588
+        height: 1129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -577,27 +601,6 @@ TextureImporter:
       bones: []
       spriteID: 6dc5557a71add8d80800000000000000
       internalID: -8246695547519017770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MrElefant_final_19
-      rect:
-        serializedVersion: 2
-        x: 839
-        y: 52
-        width: 9
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cf16ae588048b930800000000000000
-      internalID: 4159145210324328387
       vertices: []
       indices: 
       edges: []
