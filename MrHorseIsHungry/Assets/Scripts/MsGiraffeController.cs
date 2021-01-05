@@ -21,7 +21,7 @@ public class MsGiraffeController : MonoBehaviour
 
 
 
-    [SerializeField] int numOfApplesInCest;
+    [SerializeField] public int numOfApplesInCest;
     [SerializeField] int numOfBites;
 
     [SerializeField] string state;
@@ -116,6 +116,8 @@ public class MsGiraffeController : MonoBehaviour
 
     public void AppleBitten()
     {
+        print("AppleBitten");
+        
         numOfBites += 1;
 
         if(numOfBites < 3)
@@ -137,18 +139,12 @@ public class MsGiraffeController : MonoBehaviour
 
     public void Talk()
     {
-        state = "talking";
         animator.SetTrigger("talking");
     }
 
     bool IsIdle()
     {
         return state == "idle";
-    }
-
-    public bool IsTalking()
-    {
-        return state == "talking";
     }
 
     bool SomeAppleMissingInCest()
@@ -158,11 +154,9 @@ public class MsGiraffeController : MonoBehaviour
 
     public void ContinueTalking()
     {
-        if(
-            ObjectsReferrer.instance.msGiraffeBubblesController.step != 9 &&
-            ObjectsReferrer.instance.msGiraffeBubblesController.step != 13 &&
-            ObjectsReferrer.instance.msGiraffeBubblesController.step != 15
-        )
+        print("Continue Talking");
+
+        if(ObjectsReferrer.instance.msGiraffeController.IsIdle())
         {
             bubblesController.NextStep();
         }

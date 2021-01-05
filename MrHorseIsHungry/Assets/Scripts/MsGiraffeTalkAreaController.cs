@@ -6,7 +6,7 @@ public class MsGiraffeTalkAreaController : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("MrHorse"))
+        if(other.CompareTag("MrHorse") && ObjectsReferrer.instance.msGiraffeBubblesController.step == 0)
         {
             ObjectsReferrer.instance.msGiraffeController.ContinueTalking();
         }

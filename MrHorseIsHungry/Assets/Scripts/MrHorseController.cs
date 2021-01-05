@@ -21,6 +21,12 @@ public class MrHorseController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
 
+        // Not moving if Giraffe talking
+        if(ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive)
+        {
+            horizontal = 0;
+        }
+
         if(horizontal != 0)
         {
             animator.SetBool("walking", true);
@@ -40,7 +46,7 @@ public class MrHorseController : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, 0);
 
         // Fire
-        if(!ObjectsReferrer.instance.msGiraffeController.IsTalking() && Input.GetButtonDown("Jump"))
+        if(!ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && Input.GetButtonDown("Jump"))
         {
             animator.SetTrigger("bite");
         }

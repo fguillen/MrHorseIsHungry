@@ -3137,13 +3137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e42a8464cfa4085a7c1d6d37a3c68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _01GoodMoring: {fileID: 467369024}
-  _02HowAreYou: {fileID: 1205326044}
-  _03ISeeYouAreHungry: {fileID: 323348967}
-  _04DoYouWantAnApple: {fileID: 1621380153}
-  _05IseeYouAreVeryHungry: {fileID: 810833727}
-  _06DoYouWantAnotherApple: {fileID: 897745309}
-  _07NoMoreApples: {fileID: 2035588866}
+  bubble01GoodMorning: {fileID: 467369024}
+  bubble02HowAreYou: {fileID: 1205326044}
+  bubble03ISeeYouAreHungry: {fileID: 323348967}
+  bubble04DoYouWantAnApple: {fileID: 1621380153}
+  bubble05IseeYouAreVeryHungry: {fileID: 810833727}
+  bubble06DoYouWantAnotherApple: {fileID: 897745309}
+  bubble07NoMoreApples: {fileID: 2035588866}
   step: 0
 --- !u!1 &2018693709
 GameObject:
