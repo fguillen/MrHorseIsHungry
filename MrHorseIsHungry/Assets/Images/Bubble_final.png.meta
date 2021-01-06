@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -4316966035078077471
     second: Bubble_final_0
+  - first:
+      213: -5422510810489574183
+    second: Bubble_final_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,18 +133,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 765
+        y: 397
         width: 573
         height: 283
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 31, y: 100, z: 98, w: 32}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 100, z: 100, w: 30}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 1e3aebb634e0714c0800000000000000
       internalID: -4316966035078077471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_final_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 40
+        width: 573
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 120, z: 100, w: 30}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dcad06c52f5fb4b0800000000000000
+      internalID: -5422510810489574183
       vertices: []
       indices: 
       edges: []

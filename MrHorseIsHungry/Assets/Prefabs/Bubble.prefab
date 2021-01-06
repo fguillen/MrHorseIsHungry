@@ -178,7 +178,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 6.241526, y: 2.6795504}
+  m_Size: {x: 5.73, y: 2.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2d8f8e0c22d4a769b396dd4be6dd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblesController: {fileID: 0}
 --- !u!1 &4256826502120546277
 GameObject:
   m_ObjectHideFlags: 0
