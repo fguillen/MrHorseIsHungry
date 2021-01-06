@@ -24,7 +24,8 @@ public class MrHorseController : MonoBehaviour
         // Not moving if Giraffe talking
         if(
             ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive ||
-            ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive
+            ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive ||
+            ObjectsReferrer.instance.msHenBubblesController.bubbleActive
         )
         {
             horizontal = 0;
@@ -52,6 +53,7 @@ public class MrHorseController : MonoBehaviour
         if(
             !ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive && 
+            !ObjectsReferrer.instance.msHenBubblesController.bubbleActive &&
             Input.GetButtonDown("Jump"))
         {
             animator.SetTrigger("bite");

@@ -27,7 +27,7 @@ public class MrElephantBubblesController : MonoBehaviour
     {
         if(bubbleActive && Input.GetButtonDown("Jump"))
         {
-            print("MsElephantBubblesController Jump");
+            print("MrElephantBubblesController Jump");
             NextStep();
         }
     }

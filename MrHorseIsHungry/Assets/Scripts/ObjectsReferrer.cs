@@ -9,6 +9,8 @@ public class ObjectsReferrer : MonoBehaviour
     public MsGiraffeBubblesController msGiraffeBubblesController;
     public MrElephantController mrElephantController;
     public MrElephantBubblesController mrElephantBubblesController;
+    public MsHenController msHenController;
+    public MsHenBubblesController msHenBubblesController;
     public static ObjectsReferrer instance;
     
     void Awake()
