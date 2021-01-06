@@ -156,7 +156,7 @@ public class MsGiraffeController : MonoBehaviour
     {
         print("Continue Talking");
 
-        if(ObjectsReferrer.instance.msGiraffeController.IsIdle())
+        if(IsIdle())
         {
             bubblesController.NextStep();
         }

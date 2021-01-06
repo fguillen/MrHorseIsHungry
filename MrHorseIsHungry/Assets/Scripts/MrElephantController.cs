@@ -15,19 +15,33 @@ public class MrElephantController : MonoBehaviour
     [SerializeField] GameObject breadColliderBites1;
     [SerializeField] GameObject breadColliderBites2;
     [SerializeField] GameObject breadColliderBites3; 
+    [SerializeField] MrElephantBubblesController bubblesController;
+
+    Animator animator;
 
     public int breadNumBites;
 
+    [SerializeField] string state;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         breadNumBites = 0;
         DeactivateBreadColliders();
         RenderBread();
+        state = "idle";
     }
 
     public void BreadBitten(){
         breadNumBites ++;
         RenderBread();
+        Idle();
+    }
+
+    public void Idle()
+    {
+        state = "idle";
+        animator.SetBool("idle", true);
     }
 
     void RenderBread()
@@ -66,4 +80,32 @@ public class MrElephantController : MonoBehaviour
         breadColliderBites2.SetActive(false);
         breadColliderBites3.SetActive(false);
     }
+
+    public void Talk()
+    {
+        animator.SetTrigger("talking");
+    }
+
+    public void OfferBread()
+    {
+        animator.SetBool("idle", false);
+        animator.SetTrigger("offeringBread");
+        state = "offeringBread";
+    }
+
+    public bool IsIdle()
+    {
+        return state == "idle";
+    }
+
+    public void ContinueTalking()
+    {
+        print("Continue Talking");
+
+        if(IsIdle())
+        {
+            bubblesController.NextStep();
+        }
+    }
+
 }

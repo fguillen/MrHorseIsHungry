@@ -22,7 +22,10 @@ public class MrHorseController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
 
         // Not moving if Giraffe talking
-        if(ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive)
+        if(
+            ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive ||
+            ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive
+        )
         {
             horizontal = 0;
         }
@@ -40,13 +43,16 @@ public class MrHorseController : MonoBehaviour
             transform.localScale = new Vector3(-originalScaleX, transform.localScale.y, transform.localScale.z);
         } else if(horizontal > 0)
         {
-             transform.localScale = new Vector3(originalScaleX, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(originalScaleX, transform.localScale.y, transform.localScale.z);
         }
 
         rb.velocity = new Vector2(horizontal * speed, 0);
 
         // Fire
-        if(!ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && Input.GetButtonDown("Jump"))
+        if(
+            !ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && 
+            !ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive && 
+            Input.GetButtonDown("Jump"))
         {
             animator.SetTrigger("bite");
         }

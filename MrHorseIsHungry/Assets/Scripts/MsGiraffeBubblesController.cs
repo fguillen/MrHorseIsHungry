@@ -26,7 +26,7 @@ public class MsGiraffeBubblesController : MonoBehaviour
 
     void Update()
     {
-        if(ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && Input.GetButtonDown("Jump"))
+        if(bubbleActive && Input.GetButtonDown("Jump"))
         {
             print("MsGiraffeBubblesController Jump");
             NextStep();
