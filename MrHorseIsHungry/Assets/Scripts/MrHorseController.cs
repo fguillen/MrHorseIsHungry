@@ -8,6 +8,8 @@ public class MrHorseController : MonoBehaviour
     Rigidbody2D rb;
     float originalScaleX;
     [SerializeField] float speed;
+    [SerializeField] MrHorseBubblesController bubblesController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,8 @@ public class MrHorseController : MonoBehaviour
         if(
             ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive ||
             ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive ||
-            ObjectsReferrer.instance.msHenBubblesController.bubbleActive
+            ObjectsReferrer.instance.msHenBubblesController.bubbleActive ||
+            ObjectsReferrer.instance.mrHorseBubblesController.bubbleActive
         )
         {
             horizontal = 0;
@@ -54,9 +57,31 @@ public class MrHorseController : MonoBehaviour
             !ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.msHenBubblesController.bubbleActive &&
+            !ObjectsReferrer.instance.mrHorseBubblesController.bubbleActive &&
             Input.GetButtonDown("Jump"))
         {
             animator.SetTrigger("bite");
         }
+    }
+
+    public void StartEndScene()
+    {
+        print("End scene");
+        bubblesController.NextStep();
+    }
+
+    public void Talk()
+    {
+        print("Horse Talk");
+    }
+
+    public void Burp()
+    {
+        animator.SetTrigger("burp");
+    }
+
+    public void BurpEnds()
+    {
+        bubblesController.NextStep();
     }
 }
