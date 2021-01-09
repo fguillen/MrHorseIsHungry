@@ -48,6 +48,7 @@ public class MsGiraffeController : MonoBehaviour
 
     public void OfferApple()
     {
+        print("MsGiraffe state: offeringApple");
         animator.SetBool("idle", false);
         animator.SetTrigger("offeringApple");
         state = "offeringApple";
@@ -123,16 +124,21 @@ public class MsGiraffeController : MonoBehaviour
         if(numOfBites < 3)
         {
             RenderApple();
-        } else
+        } else if(numOfBites == 3)
         {
+            print("Ms Giraffe Apple finished");
             apple.sprite = null;
-            Idle();
             bubblesController.NextStep();
+            Invoke("Idle", 0.5f);
+        } else 
+        {
+            print("Error: wrong number of numOfBites: " + numOfBites);
         }
     }
 
     public void Idle()
     {
+        print("MsGiraffe state: idle");
         state = "idle";
         animator.SetBool("idle", true);
     }
@@ -154,10 +160,11 @@ public class MsGiraffeController : MonoBehaviour
 
     public void ContinueTalking()
     {
-        print("Continue Talking");
+        print("Ms Giraffe Continue Talking");
 
         if(IsIdle())
         {
+            print("Ms Giraffe Continue Talking... NextStep");
             bubblesController.NextStep();
         }
     }

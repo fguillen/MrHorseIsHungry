@@ -42,6 +42,7 @@ public class MrElephantController : MonoBehaviour
     {
         state = "idle";
         animator.SetBool("idle", true);
+        DeactivateBreadColliders();
     }
 
     void RenderBread()
@@ -52,25 +53,42 @@ public class MrElephantController : MonoBehaviour
         {
             case 0:
                 breadSpriteRenderer.sprite = breadSpriteBites0;
-                breadColliderBites0.SetActive(true);
                 break;
             case 1:
                 breadSpriteRenderer.sprite = breadSpriteBites1;
-                breadColliderBites1.SetActive(true);
                 break;
             case 2:
                 breadSpriteRenderer.sprite = breadSpriteBites2;
-                breadColliderBites2.SetActive(true);
                 break;
             case 3:
                 breadSpriteRenderer.sprite = breadSpriteBites3;
-                breadColliderBites3.SetActive(true);
                 break;
             case 4:
                 breadSpriteRenderer.sprite = null;
                 break;
             default:
                 throw new ArgumentException("Invalid breadNumBites: " + breadNumBites);
+        }
+    }
+
+    void ActivateBreadCollider()
+    {
+        switch (breadNumBites)
+        {
+            case 0:
+                breadColliderBites0.SetActive(true);
+                break;
+            case 1:
+                breadColliderBites1.SetActive(true);
+                break;
+            case 2:
+                breadColliderBites2.SetActive(true);
+                break;
+            case 3:
+                breadColliderBites3.SetActive(true);
+                break;
+            default:
+                throw new ArgumentException("Invalid breadNumBites in ActivateBreadCollider: " + breadNumBites);
         }
     }
 
@@ -91,6 +109,7 @@ public class MrElephantController : MonoBehaviour
         animator.SetBool("idle", false);
         animator.SetTrigger("offeringBread");
         state = "offeringBread";
+        ActivateBreadCollider();
     }
 
     public bool IsIdle()
@@ -104,6 +123,7 @@ public class MrElephantController : MonoBehaviour
 
         if(IsIdle())
         {
+            print("Continue Talking... NextStep");
             bubblesController.NextStep();
         }
     }

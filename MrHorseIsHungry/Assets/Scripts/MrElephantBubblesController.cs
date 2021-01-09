@@ -36,6 +36,8 @@ public class MrElephantBubblesController : MonoBehaviour
     {
         step ++;
 
+        print("Mr Elephant step: " + step);
+
         switch (step)
         {
             case 1:

@@ -37,6 +37,8 @@ public class MsGiraffeBubblesController : MonoBehaviour
     {
         step ++;
 
+        print("Ms Giraffe step: " + step);
+
         switch (step)
         {
             case 1:
