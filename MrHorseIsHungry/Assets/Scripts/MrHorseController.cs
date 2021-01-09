@@ -10,12 +10,15 @@ public class MrHorseController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] MrHorseBubblesController bubblesController;
 
+    bool endSceneStarted;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         originalScaleX = transform.localScale.x;
+        endSceneStarted = false;
     }
 
     // Update is called once per frame
@@ -23,12 +26,13 @@ public class MrHorseController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Not moving if Giraffe talking
+        // Not moving if Giraffe talking or End Scene started
         if(
             ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive ||
             ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive ||
             ObjectsReferrer.instance.msHenBubblesController.bubbleActive ||
-            ObjectsReferrer.instance.mrHorseBubblesController.bubbleActive
+            ObjectsReferrer.instance.mrHorseBubblesController.bubbleActive || 
+            endSceneStarted
         )
         {
             horizontal = 0;
@@ -58,6 +62,7 @@ public class MrHorseController : MonoBehaviour
             !ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.msHenBubblesController.bubbleActive &&
             !ObjectsReferrer.instance.mrHorseBubblesController.bubbleActive &&
+            !endSceneStarted &&
             Input.GetButtonDown("Jump"))
         {
             animator.SetTrigger("bite");
@@ -67,6 +72,7 @@ public class MrHorseController : MonoBehaviour
     public void StartEndScene()
     {
         print("End scene");
+        endSceneStarted = true;
         bubblesController.NextStep();
     }
 
