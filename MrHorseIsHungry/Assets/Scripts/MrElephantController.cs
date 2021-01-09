@@ -35,7 +35,7 @@ public class MrElephantController : MonoBehaviour
     public void BreadBitten(){
         breadNumBites ++;
         RenderBread();
-        Idle();
+        Invoke("Idle", 0.2f);
     }
 
     public void Idle()

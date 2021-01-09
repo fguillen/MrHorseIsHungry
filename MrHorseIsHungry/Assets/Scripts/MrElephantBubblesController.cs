@@ -91,6 +91,7 @@ public class MrElephantBubblesController : MonoBehaviour
                 if(ObjectsReferrer.instance.mrElephantController.breadNumBites < 4)
                 {
                     step = 8;
+                    NextStep();
                 }
                 break;
             // Repeat until no more bread :: END
