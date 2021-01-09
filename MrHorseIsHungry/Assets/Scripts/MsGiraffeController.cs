@@ -26,6 +26,8 @@ public class MsGiraffeController : MonoBehaviour
 
     [SerializeField] string state;
 
+    bool headPositionBackwards;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,15 +37,29 @@ public class MsGiraffeController : MonoBehaviour
         numOfBites = 0;
         RenderApplesInCest();
         Idle();
+        headPositionBackwards = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if(IsIdle() && SomeAppleMissingInCest() && Input.GetButtonDown("Jump"))
-        // {
-        //     OfferApple();
-        // }
+        CheckHeadPosition();
+    }
+
+    void CheckHeadPosition()
+    {
+        float distanceToMrHorse = ObjectsReferrer.instance.mrHorseController.gameObject.transform.position.x - gameObject.transform.position.x;
+
+        if(distanceToMrHorse > 5 && !headPositionBackwards)
+        {
+            animator.SetBool("headBackwards", true);
+            headPositionBackwards = true;
+            
+        } else if(distanceToMrHorse < -2 && headPositionBackwards)
+        {
+            headPositionBackwards = false;
+            animator.SetBool("headBackwards", false);
+        }
     }
 
     public void OfferApple()
