@@ -13,6 +13,7 @@ public class ObjectsReferrer : MonoBehaviour
     public MrElephantBubblesController mrElephantBubblesController;
     public MsHenController msHenController;
     public MsHenBubblesController msHenBubblesController;
+    public VirtualCameraController virtualCameraController;
     public static ObjectsReferrer instance;
     
     void Awake()

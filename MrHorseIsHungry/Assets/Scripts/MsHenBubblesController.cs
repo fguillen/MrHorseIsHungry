@@ -13,6 +13,7 @@ public class MsHenBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble06NoMoreEgg;
 
     public bool bubbleActive;
+    public bool waitingForAutomaticNextStep;
 
     public int step;
 
@@ -20,11 +21,13 @@ public class MsHenBubblesController : MonoBehaviour
     {
         step = 0;
         SetBubbleNotActiveNextFrame();
+        waitingForAutomaticNextStep = false;
+        bubbleActive = false;
     }
 
     void Update()
     {
-        if(bubbleActive && Input.GetButtonDown("Jump"))
+        if(bubbleActive && !waitingForAutomaticNextStep && Input.GetButtonDown("Jump"))
         {
             print("MsHenBubblesController Jump");
             NextStep();
@@ -35,15 +38,21 @@ public class MsHenBubblesController : MonoBehaviour
     {
         step ++;
 
+        print("MsHen step: " + step);
+
+        waitingForAutomaticNextStep = false;
+
         switch (step)
         {
             case 1:
+                ObjectsReferrer.instance.virtualCameraController.TargetMsHen();
                 bubble01Hello.Appear();
-                bubbleActive = true;
+                ActivateBubble();
                 ObjectsReferrer.instance.msHenController.Talk();
                 break;
             case 2:
                 bubble01Hello.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             case 3:
@@ -56,11 +65,12 @@ public class MsHenBubblesController : MonoBehaviour
                 break;
             case 5:
                 bubble03YouAreHungry.Appear();
-                bubbleActive = true;
+                ActivateBubble();
                 ObjectsReferrer.instance.msHenController.Talk();
                 break;
             case 6:
                 bubble03YouAreHungry.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             case 7:
@@ -79,7 +89,7 @@ public class MsHenBubblesController : MonoBehaviour
                 break;
             case 10:
                 bubble05TakeThisEgg.Appear();
-                bubbleActive = true;
+                ActivateBubble();
                 ObjectsReferrer.instance.msHenController.Talk();
                 break;
             case 11:
@@ -90,8 +100,9 @@ public class MsHenBubblesController : MonoBehaviour
             
             // Block repeated infintely :: INI
             case 12: // No More Bead
+                ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
                 bubble06NoMoreEgg.Appear();
-                bubbleActive = true;
+                ActivateBubble();
                 ObjectsReferrer.instance.msHenController.Talk();
                 break;
             case 13:
@@ -105,6 +116,11 @@ public class MsHenBubblesController : MonoBehaviour
                 throw new ArgumentException("step not valid: " + step);
         }
     }
+    void ActivateBubble()
+    {
+        print("bubbleActive: true");
+        bubbleActive = true;
+    }
 
     void SetBubbleNotActiveNextFrame()
     {
@@ -114,6 +130,7 @@ public class MsHenBubblesController : MonoBehaviour
     IEnumerator SetBubbleNotActiveNextFrameCoroutine()
     {
         yield return null;
+        print("bubbleActive: false");
         bubbleActive = false;
     }
 }

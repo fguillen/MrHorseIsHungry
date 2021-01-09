@@ -14,6 +14,7 @@ public class MrElephantBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble06NoMoreBread;
 
     public bool bubbleActive;
+    public bool waitingForAutomaticNextStep;
 
     public int step;
 
@@ -21,11 +22,14 @@ public class MrElephantBubblesController : MonoBehaviour
     {
         step = 0;
         SetBubbleNotActiveNextFrame();
+
+        waitingForAutomaticNextStep = false;
+        bubbleActive = false;
     }
 
     void Update()
     {
-        if(bubbleActive && Input.GetButtonDown("Jump"))
+        if(bubbleActive && !waitingForAutomaticNextStep && Input.GetButtonDown("Jump"))
         {
             print("MrElephantBubblesController Jump");
             NextStep();
@@ -38,15 +42,19 @@ public class MrElephantBubblesController : MonoBehaviour
 
         print("Mr Elephant step: " + step);
 
+        waitingForAutomaticNextStep = false;
+
         switch (step)
         {
             case 1:
+                ObjectsReferrer.instance.virtualCameraController.TargetMrElephant();
                 bubble01GoodMorning.Appear();
                 bubbleActive = true;
                 ObjectsReferrer.instance.mrElephantController.Talk();
                 break;
             case 2:
                 bubble01GoodMorning.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             case 3:
@@ -64,6 +72,7 @@ public class MrElephantBubblesController : MonoBehaviour
                 break;
             case 6:
                 bubble03VigorousAppetite.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             case 7:
@@ -99,6 +108,7 @@ public class MrElephantBubblesController : MonoBehaviour
             
             // Block repeated infintely :: INI
             case 12: // No More Bead
+                ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
                 bubble06NoMoreBread.Appear();
                 bubbleActive = true;
                 ObjectsReferrer.instance.mrElephantController.Talk();

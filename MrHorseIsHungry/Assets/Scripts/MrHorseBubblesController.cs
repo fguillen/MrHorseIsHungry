@@ -11,6 +11,7 @@ public class MrHorseBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble03End;
 
     public bool bubbleActive;
+    public bool waitingForAutomaticNextStep;
 
     public int step;
 
@@ -18,12 +19,16 @@ public class MrHorseBubblesController : MonoBehaviour
     {
         step = 0;
         SetBubbleNotActiveNextFrame();
+
+        waitingForAutomaticNextStep = false;
+        bubbleActive = false;
     }
 
     void Update()
     {
         if(
             bubbleActive && 
+            !waitingForAutomaticNextStep &&
             Input.GetButtonDown("Jump") &&
             step < 4 // After this no more control
         ){
@@ -36,6 +41,8 @@ public class MrHorseBubblesController : MonoBehaviour
     {
         step ++;
 
+        waitingForAutomaticNextStep = false;
+
         switch (step)
         {
             case 1:
@@ -45,6 +52,7 @@ public class MrHorseBubblesController : MonoBehaviour
                 break;
             case 2:
                 bubble01ItsNice.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             case 3:
@@ -57,6 +65,7 @@ public class MrHorseBubblesController : MonoBehaviour
                 SetBubbleNotActiveNextFrame();
                 break;
             case 5:
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 1f);
                 break;
             case 6:

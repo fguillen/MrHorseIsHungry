@@ -15,6 +15,7 @@ public class MsGiraffeBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble07NoMoreApples;
 
     public bool bubbleActive;
+    public bool waitingForAutomaticNextStep;
 
     public int step;
 
@@ -22,6 +23,9 @@ public class MsGiraffeBubblesController : MonoBehaviour
     {
         step = 0;
         SetBubbleNotActiveNextFrame();
+
+        waitingForAutomaticNextStep = false;
+        bubbleActive = false;
     }
 
     void Update()
@@ -39,15 +43,19 @@ public class MsGiraffeBubblesController : MonoBehaviour
 
         print("Ms Giraffe step: " + step);
 
+        waitingForAutomaticNextStep = false;
+
         switch (step)
         {
             case 1:
+                ObjectsReferrer.instance.virtualCameraController.TargetMsGiraffe();
                 bubble01GoodMorning.Appear();
                 bubbleActive = true;
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 break;
             case 2:
                 bubble01GoodMorning.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             case 3:
@@ -65,6 +73,7 @@ public class MsGiraffeBubblesController : MonoBehaviour
                 break;
             case 6:
                 bubble03ISeeYouAreHungry.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             case 7:
@@ -83,6 +92,7 @@ public class MsGiraffeBubblesController : MonoBehaviour
                 break;
             case 10:
                 bubble05IseeYouAreVeryHungry.Disappear();
+                waitingForAutomaticNextStep = true;
                 Invoke("NextStep", 0.5f);
                 break;
             
@@ -110,6 +120,7 @@ public class MsGiraffeBubblesController : MonoBehaviour
                 bubble07NoMoreApples.Appear();
                 bubbleActive = true;
                 ObjectsReferrer.instance.msGiraffeController.Talk();
+                ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
                 break;
             case 15:
                 bubble07NoMoreApples.Disappear();

@@ -46,7 +46,7 @@ public class MsHenController : MonoBehaviour
 
     public void Idle()
     {
-        print("MsHen Idle");
+        print("MsHen state Idle");
         state = "idle";
         animator.SetBool("idle", true);
     }
@@ -91,10 +91,17 @@ public class MsHenController : MonoBehaviour
 
     public void OfferEgg()
     {
-        print("MsHen OfferEgg");
+        print("MsHen state OfferEgg");
         animator.SetBool("idle", false);
         animator.SetTrigger("offeringEgg");
         state = "offeringEgg";
+    }
+
+    public void EggFinished()
+    {
+        print("Egg finished");
+        bubblesController.step = 9;
+        bubblesController.NextStep();
     }
 
     public bool IsIdle()
@@ -106,8 +113,16 @@ public class MsHenController : MonoBehaviour
     {
         print("MsHen Continue Talking");
 
-        if(IsIdle())
+        if(
+            IsIdle() &&
+            (
+                bubblesController.step == 0 ||
+                bubblesController.step == 4 ||
+                bubblesController.step == 11
+            )
+        )
         {
+            print("MsHen Continue Talking ... NextStep");
             bubblesController.NextStep();
         }
     }
