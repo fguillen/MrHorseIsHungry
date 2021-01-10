@@ -16,6 +16,8 @@ public class MrHorseController : MonoBehaviour
     [SerializeField] bool tutorialShownWalk;
     [SerializeField] bool tutorialShownBite;
     [SerializeField] bool tutorialShownCloseDialogue;
+    [SerializeField] ParticleSystem particlesBiteAir;
+    [SerializeField] GameObject mouth;
 
 
     bool endSceneStarted;
@@ -83,8 +85,18 @@ public class MrHorseController : MonoBehaviour
             !endSceneStarted &&
             Input.GetButtonDown("Jump"))
         {
-            animator.SetTrigger("bite");
+            Bite();
         }
+    }
+
+    void Bite()
+    {
+        animator.SetTrigger("bite");
+    }
+
+    public void BiteCloseMouthEvent()
+    {
+        Instantiate(particlesBiteAir, mouth.transform.position, Quaternion.identity);
     }
 
     public void CheckShowTutorials()

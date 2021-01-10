@@ -26,6 +26,8 @@ public class MsGiraffeController : MonoBehaviour
 
     [SerializeField] string state;
 
+    [SerializeField] ParticleSystem particlesBiteApple;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +112,8 @@ public class MsGiraffeController : MonoBehaviour
     public void AppleBitten()
     {
         print("AppleBitten");
+
+        Instantiate(particlesBiteApple, apple.transform.position, Quaternion.identity);
         
         numOfBites += 1;
 
