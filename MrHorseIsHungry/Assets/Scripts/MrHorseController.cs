@@ -11,6 +11,7 @@ public class MrHorseController : MonoBehaviour
     [SerializeField] MrHorseBubblesController bubblesController;
 
     bool endSceneStarted;
+    bool leftLimitReached;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class MrHorseController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         originalScaleX = transform.localScale.x;
         endSceneStarted = false;
+        leftLimitReached = false;
     }
 
     // Update is called once per frame
@@ -31,9 +33,14 @@ public class MrHorseController : MonoBehaviour
             ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive ||
             ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive ||
             ObjectsReferrer.instance.msHenBubblesController.bubbleActive ||
-            ObjectsReferrer.instance.mrHorseBubblesController.bubbleActive || 
+            ObjectsReferrer.instance.mrHorseBubblesController.IsBubbleActive() || 
             endSceneStarted
         )
+        {
+            horizontal = 0;
+        }
+
+        if(horizontal < 0 && leftLimitReached)
         {
             horizontal = 0;
         }
@@ -61,7 +68,7 @@ public class MrHorseController : MonoBehaviour
             !ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.msHenBubblesController.bubbleActive &&
-            !ObjectsReferrer.instance.mrHorseBubblesController.bubbleActive &&
+            !ObjectsReferrer.instance.mrHorseBubblesController.IsBubbleActive() &&
             !endSceneStarted &&
             Input.GetButtonDown("Jump"))
         {
@@ -89,5 +96,16 @@ public class MrHorseController : MonoBehaviour
     public void BurpEnds()
     {
         bubblesController.NextStep();
+    }
+
+    public void LeftLimitEnter()
+    {
+        bubblesController.ShowLeftLimitBubble();
+        leftLimitReached = true;
+    }
+
+    public void LeftLimitExit()
+    {
+        leftLimitReached = false;
     }
 }

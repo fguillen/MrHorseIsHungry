@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class MrHorseBubblesController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] BubbleController bubble00AMyHouseDirection;
+    [SerializeField] BubbleController bubble00BImHungry;
     [SerializeField] BubbleController bubble01ItsNice;
     [SerializeField] BubbleController bubble02NoHungry;
     [SerializeField] BubbleController bubble03End;
+    
+
+    BubbleController bubbleControllerActive;
 
     public bool bubbleActive;
     public bool waitingForAutomaticNextStep;
@@ -26,7 +30,13 @@ public class MrHorseBubblesController : MonoBehaviour
 
     void Update()
     {
+        if(bubbleControllerActive != null && Input.GetButtonDown("Jump"))
+        {
+            HideBubble();
+        }
+
         if(
+            bubbleControllerActive == null &&
             bubbleActive && 
             !waitingForAutomaticNextStep &&
             Input.GetButtonDown("Jump") &&
@@ -88,5 +98,26 @@ public class MrHorseBubblesController : MonoBehaviour
     {
         yield return null;
         bubbleActive = false;
+    }
+
+    void ShowBubble(BubbleController bubbleController){
+        bubbleController.Appear();
+        bubbleControllerActive = bubbleController;
+    }
+
+    void HideBubble()
+    {
+        bubbleControllerActive.Disappear();
+        bubbleControllerActive = null;
+    }
+
+    public void ShowLeftLimitBubble()
+    {
+        ShowBubble(bubble00AMyHouseDirection);
+    }
+
+    public bool IsBubbleActive()
+    {
+        return (bubbleActive || bubbleControllerActive != null);
     }
 }
