@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System;
 using UnityEngine;
 
@@ -10,9 +11,12 @@ public class MrHorseBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble01ItsNice;
     [SerializeField] BubbleController bubble02NoHungry;
     [SerializeField] BubbleController bubble03End;
+
+    [SerializeField] BubbleController bubbleTutorial01Walk;
+    [SerializeField] BubbleController bubbleTutorial02Bite;
     
 
-    BubbleController bubbleControllerActive;
+    List<BubbleController> bubblesControllerActive;
 
     public bool bubbleActive;
     public bool waitingForAutomaticNextStep;
@@ -26,17 +30,14 @@ public class MrHorseBubblesController : MonoBehaviour
 
         waitingForAutomaticNextStep = false;
         bubbleActive = false;
+
+        bubblesControllerActive = new List<BubbleController>();
     }
 
     void Update()
     {
-        if(bubbleControllerActive != null && Input.GetButtonDown("Jump"))
-        {
-            HideBubble();
-        }
-
         if(
-            bubbleControllerActive == null &&
+            !bubblesControllerActive.Any() &&
             bubbleActive && 
             !waitingForAutomaticNextStep &&
             Input.GetButtonDown("Jump") &&
@@ -44,6 +45,11 @@ public class MrHorseBubblesController : MonoBehaviour
         ){
             print("MrHorseBubblesController Jump");
             NextStep();
+        }
+
+        if(bubblesControllerActive.Any() && Input.GetButtonDown("Jump"))
+        {
+            HideBubbles();
         }
     }
 
@@ -102,13 +108,22 @@ public class MrHorseBubblesController : MonoBehaviour
 
     void ShowBubble(BubbleController bubbleController){
         bubbleController.Appear();
-        bubbleControllerActive = bubbleController;
+        bubblesControllerActive.Add(bubbleController);
     }
 
-    void HideBubble()
+    void HideBubbles()
     {
-        bubbleControllerActive.Disappear();
-        bubbleControllerActive = null;
+        foreach (var bubbleController in bubblesControllerActive)
+        {
+            bubbleController.Disappear();
+        }
+
+        bubblesControllerActive.Clear();
+    }
+
+    public bool IsBubbleActive()
+    {
+        return (bubbleActive || bubblesControllerActive.Any());
     }
 
     public void ShowLeftLimitBubble()
@@ -121,8 +136,15 @@ public class MrHorseBubblesController : MonoBehaviour
         ShowBubble(bubble00BImHungry);
     }
 
-    public bool IsBubbleActive()
+    public void ShowTutorialWalk()
     {
-        return (bubbleActive || bubbleControllerActive != null);
+        ShowBubble(bubbleTutorial01Walk);
     }
+
+    public void ShowTutorialBite()
+    {
+        ShowBubble(bubbleTutorial02Bite);
+    }
+
+    
 }

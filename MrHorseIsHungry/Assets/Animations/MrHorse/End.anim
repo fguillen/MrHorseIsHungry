@@ -210,7 +210,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Head
+    path: Figure/Head
   m_ScaleCurves: []
   m_FloatCurves:
   - curve:
@@ -229,7 +229,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Mouth
+    path: Figure/Mouth
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -257,7 +257,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Rainbow
+    path: Figure/Rainbow
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
@@ -338,7 +338,7 @@ AnimationClip:
       value: {fileID: 7964509461844213967, guid: 241ec211d5f32446897c4f9e7d98f2f3,
         type: 3}
     attribute: m_Sprite
-    path: Body
+    path: Figure/Body
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -478,7 +478,7 @@ AnimationClip:
       value: {fileID: -4989630039140798999, guid: 241ec211d5f32446897c4f9e7d98f2f3,
         type: 3}
     attribute: m_Sprite
-    path: Head
+    path: Figure/Head
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -531,7 +531,7 @@ AnimationClip:
       value: {fileID: -6374197666864206384, guid: 241ec211d5f32446897c4f9e7d98f2f3,
         type: 3}
     attribute: m_Sprite
-    path: Rainbow
+    path: Figure/Rainbow
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -542,42 +542,42 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 130111906
+      path: 3806355427
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1594127251
+      path: 1580868499
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3254969002
+      path: 2842276448
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2073732236
+      path: 2663097037
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
-      path: 130111906
+      path: 3806355427
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
-      path: 3254969002
+      path: 2842276448
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -887,7 +887,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Head
+    path: Figure/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1086,7 +1086,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Head
+    path: Figure/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1285,7 +1285,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Head
+    path: Figure/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1304,7 +1304,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Mouth
+    path: Figure/Mouth
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -1332,7 +1332,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Rainbow
+    path: Figure/Rainbow
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

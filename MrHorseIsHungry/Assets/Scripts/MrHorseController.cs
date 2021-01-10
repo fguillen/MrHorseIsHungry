@@ -9,6 +9,14 @@ public class MrHorseController : MonoBehaviour
     float originalScaleX;
     [SerializeField] float speed;
     [SerializeField] MrHorseBubblesController bubblesController;
+    [SerializeField] GameObject figure;
+
+    [SerializeField] float tutorialWaitSecondsWalk;
+    [SerializeField] float tutorialWaitSecondsBite;
+    [SerializeField] bool tutorialShownWalk;
+    [SerializeField] bool tutorialShownBite;
+    [SerializeField] bool tutorialShownCloseDialogue;
+
 
     bool endSceneStarted;
     bool leftLimitReached;
@@ -19,7 +27,7 @@ public class MrHorseController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        originalScaleX = transform.localScale.x;
+        originalScaleX = figure.transform.localScale.x;
         endSceneStarted = false;
         leftLimitReached = false;
     }
@@ -27,6 +35,8 @@ public class MrHorseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckShowTutorials();
+
         float horizontal = Input.GetAxisRaw("Horizontal");
 
         // Not moving if Giraffe talking or End Scene started
@@ -56,10 +66,10 @@ public class MrHorseController : MonoBehaviour
 
         if(horizontal < 0)
         {
-            transform.localScale = new Vector3(-originalScaleX, transform.localScale.y, transform.localScale.z);
+            figure.transform.localScale = new Vector3(-originalScaleX, figure.transform.localScale.y, figure.transform.localScale.z);
         } else if(horizontal > 0)
         {
-            transform.localScale = new Vector3(originalScaleX, transform.localScale.y, transform.localScale.z);
+            figure.transform.localScale = new Vector3(originalScaleX, figure.transform.localScale.y, figure.transform.localScale.z);
         }
 
         rb.velocity = new Vector2(horizontal * speed, 0);
@@ -74,6 +84,27 @@ public class MrHorseController : MonoBehaviour
             Input.GetButtonDown("Jump"))
         {
             animator.SetTrigger("bite");
+        }
+    }
+
+    public void CheckShowTutorials()
+    {
+        if(!tutorialShownWalk){
+            tutorialWaitSecondsWalk -= Time.deltaTime;
+            if(tutorialWaitSecondsWalk < 0)
+            {
+                bubblesController.ShowTutorialWalk();
+                tutorialShownWalk = true;
+            }
+        }
+
+        if(!tutorialShownBite){
+            tutorialWaitSecondsBite -= Time.deltaTime;
+            if(tutorialWaitSecondsBite < 0)
+            {
+                bubblesController.ShowTutorialBite();
+                tutorialShownBite = true;
+            }
         }
     }
 
