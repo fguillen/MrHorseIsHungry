@@ -12,6 +12,7 @@ public class MrHorseController : MonoBehaviour
 
     bool endSceneStarted;
     bool leftLimitReached;
+    bool imHungryBubbleShown;
 
     // Start is called before the first frame update
     void Start()
@@ -107,5 +108,14 @@ public class MrHorseController : MonoBehaviour
     public void LeftLimitExit()
     {
         leftLimitReached = false;
+    }
+
+    public void ShowImHungryBubble()
+    {
+        if(!imHungryBubbleShown)
+        {
+            bubblesController.ShowImHungryBubble();
+            imHungryBubbleShown = true;
+        }
     }
 }

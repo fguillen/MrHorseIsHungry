@@ -116,6 +116,11 @@ public class MrHorseBubblesController : MonoBehaviour
         ShowBubble(bubble00AMyHouseDirection);
     }
 
+    public void ShowImHungryBubble()
+    {
+        ShowBubble(bubble00BImHungry);
+    }
+
     public bool IsBubbleActive()
     {
         return (bubbleActive || bubbleControllerActive != null);
