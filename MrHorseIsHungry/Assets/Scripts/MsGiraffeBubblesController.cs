@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.Linq;
 using System.Collections;
 
 public class MsGiraffeBubblesController : MonoBehaviour
@@ -14,27 +15,19 @@ public class MsGiraffeBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble06DoYouWantAnotherApple;
     [SerializeField] BubbleController bubble07NoMoreApples;
 
-    public bool bubbleActive;
-    public bool waitingForAutomaticNextStep;
+    [SerializeField] List<BubbleController> bubbleControllers;
 
     public int step;
 
     void Start()
     {
         step = 0;
-        SetBubbleNotActiveNextFrame();
-
-        waitingForAutomaticNextStep = false;
-        bubbleActive = false;
+        // bubbleControllers = new List<BubbleController>();
+        InitializeBubbleControllersList();
     }
 
     void Update()
     {
-        if(bubbleActive && Input.GetButtonDown("Jump"))
-        {
-            print("MsGiraffeBubblesController Jump");
-            NextStep();
-        }
     }
 
     public void NextStep()
@@ -43,89 +36,51 @@ public class MsGiraffeBubblesController : MonoBehaviour
 
         print("Ms Giraffe step: " + step);
 
-        waitingForAutomaticNextStep = false;
-
         switch (step)
         {
             case 1:
                 ObjectsReferrer.instance.virtualCameraController.TargetMsGiraffe();
-                bubble01GoodMorning.Appear();
-                bubbleActive = true;
+                bubble01GoodMorning.Appear(NextStep);
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 break;
             case 2:
-                bubble01GoodMorning.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
-                break;
-            case 3:
                 bubble02HowAreYou.Appear();
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 break;
-            case 4:
-                bubble02HowAreYou.Disappear();
-                SetBubbleNotActiveNextFrame();
-                break;
-            case 5:
-                bubble03ISeeYouAreHungry.Appear();
-                bubbleActive = true;
+            case 3:
+                bubble03ISeeYouAreHungry.Appear(NextStep);
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 break;
-            case 6:
-                bubble03ISeeYouAreHungry.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
-                break;
-            case 7:
+            case 4:
                 bubble04DoYouWantAnApple.Appear();
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 ObjectsReferrer.instance.msGiraffeController.OfferApple();
                 break;
-            case 8:
-                bubble04DoYouWantAnApple.Disappear();
-                SetBubbleNotActiveNextFrame();
-                break;
-            case 9:
-                bubble05IseeYouAreVeryHungry.Appear();
-                bubbleActive = true;
+            case 5:
+                bubble05IseeYouAreVeryHungry.Appear(NextStep);
                 ObjectsReferrer.instance.msGiraffeController.Talk();
-                break;
-            case 10:
-                bubble05IseeYouAreVeryHungry.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
                 break;
             
             // Block repeated until no more Apples :: INI
-            case 11: // Apple offering
+            case 6: // Apple offering
                 bubble06DoYouWantAnotherApple.Appear();
-                bubbleActive = true;
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 ObjectsReferrer.instance.msGiraffeController.OfferApple();
                 break;
-            case 12:
-                bubble06DoYouWantAnotherApple.Disappear();
-                SetBubbleNotActiveNextFrame();
-                break;
-            case 13:
+            case 7:
                 if(ObjectsReferrer.instance.msGiraffeController.numOfApplesInCest > 0)
                 {
-                    step = 10;
+                    step = 5;
                 }
                 break;
             // Block repeated until no more Apples :: END
 
             // Block repeated infintely :: INI
-            case 14: // No More Apples
+            case 8: // No More Apples
                 bubble07NoMoreApples.Appear();
-                bubbleActive = true;
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
-                break;
-            case 15:
-                bubble07NoMoreApples.Disappear();
-                SetBubbleNotActiveNextFrame();
-                step = 13;
+                step = 7;
                 break;
             // Block repeated infintely :: END
  
@@ -134,14 +89,31 @@ public class MsGiraffeBubblesController : MonoBehaviour
         }
     }
 
-    void SetBubbleNotActiveNextFrame()
-    {
-        StartCoroutine(SetBubbleNotActiveNextFrameCoroutine());
+    
+    void InitializeBubbleControllersList()
+    {        
+        // I have tried to use some metaprogramming
+        //   to initialize this List but I was not able
+        //   I have tried PropertyInfo but didn't work:
+        // #
+        // var propertyInfos = this.GetType().GetProperties();
+        // foreach (System.Reflection.PropertyInfo propertyInfo in propertyInfos)
+        // {
+        //     bubbleControllers.Add((BubbleController)propertyInfo.GetValue(this, null));
+        // }
+        // #
+
+        bubbleControllers.Add(bubble01GoodMorning);
+        bubbleControllers.Add(bubble02HowAreYou);
+        bubbleControllers.Add(bubble03ISeeYouAreHungry);
+        bubbleControllers.Add(bubble04DoYouWantAnApple);
+        bubbleControllers.Add(bubble05IseeYouAreVeryHungry);
+        bubbleControllers.Add(bubble06DoYouWantAnotherApple);
+        bubbleControllers.Add(bubble07NoMoreApples);
     }
 
-    IEnumerator SetBubbleNotActiveNextFrameCoroutine()
+    public bool AnyBubbleActive()
     {
-        yield return null;
-        bubbleActive = false;
+        return bubbleControllers.Any(e => e.isShown);
     }
 }

@@ -43,7 +43,7 @@ public class MrHorseController : MonoBehaviour
 
         // Not moving if Giraffe talking or End Scene started
         if(
-            ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive ||
+            ObjectsReferrer.instance.msGiraffeBubblesController.AnyBubbleActive() ||
             ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive ||
             ObjectsReferrer.instance.msHenBubblesController.bubbleActive ||
             ObjectsReferrer.instance.mrHorseBubblesController.IsBubbleActive() || 
@@ -78,7 +78,7 @@ public class MrHorseController : MonoBehaviour
 
         // Fire
         if(
-            !ObjectsReferrer.instance.msGiraffeBubblesController.bubbleActive && 
+            !ObjectsReferrer.instance.msGiraffeBubblesController.AnyBubbleActive() && 
             !ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.msHenBubblesController.bubbleActive &&
             !ObjectsReferrer.instance.mrHorseBubblesController.IsBubbleActive() &&

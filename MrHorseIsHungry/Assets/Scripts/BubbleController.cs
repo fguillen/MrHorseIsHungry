@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using TMPro;
 
@@ -14,6 +13,7 @@ public class BubbleController : MonoBehaviour
 
     bool finished;
     public bool isShown;
+    Action callback;
 
     [SerializeField] AudioClip[] talkingEffects;
     AudioSource audioSource;
@@ -32,6 +32,11 @@ public class BubbleController : MonoBehaviour
 
     void Update()
     {
+        // if(isShown)
+        // {
+        //     print("break point");
+        // }
+
         if(isShown && !finished)
         {
             UpdateText();
@@ -81,20 +86,20 @@ public class BubbleController : MonoBehaviour
 
     }
 
-    public void Appear()
+    public void Appear(Action callback = null)
     {
+        this.callback = callback;
         animator.SetTrigger("appear");
         audioSource.clip = talkingEffects[UnityEngine.Random.Range(0, talkingEffects.Length)];
         audioSource.Play();   
-        isShown = true;
         finished = false;
+        isShown = true;
         startWrittingAt = Time.time;
     }
 
     public void Disappear()
     {
         animator.SetTrigger("disappear");
-        isShown = false;
         FinishWritting();
     }
 
@@ -102,6 +107,17 @@ public class BubbleController : MonoBehaviour
     {
         finished = true;
         audioSource.Stop();
+    }
+
+    void AnimatorEventAppearFinished()
+    {
+        // nothing here yet
+    }
+
+    void AnimatorEventDisappearFinished()
+    {
+        isShown = false;
+        callback?.Invoke();
     }
 
 }
