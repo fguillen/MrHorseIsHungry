@@ -1102,6 +1102,21 @@ PrefabInstance:
       propertyPath: bubblesController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1558,6 +1573,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1926536082}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: aeed1d0e290c44cd69bc64378efbd99c, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e0b040871f9b49afbe5974b8b0b5fb0, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3204,6 +3234,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2135793756}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3742,6 +3787,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1926536082}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: aeed1d0e290c44cd69bc64378efbd99c, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e0b040871f9b49afbe5974b8b0b5fb0, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3957,6 +4017,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1926536082}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: aeed1d0e290c44cd69bc64378efbd99c, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e0b040871f9b49afbe5974b8b0b5fb0, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -5430,6 +5505,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2135793756}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -6622,6 +6712,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1926536082}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: aeed1d0e290c44cd69bc64378efbd99c, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e0b040871f9b49afbe5974b8b0b5fb0, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -6772,6 +6877,21 @@ PrefabInstance:
       propertyPath: bubblesController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: aeed1d0e290c44cd69bc64378efbd99c, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e0b040871f9b49afbe5974b8b0b5fb0, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -9366,6 +9486,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2135793756}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -10825,6 +10960,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2135793756}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -11409,6 +11559,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2135793756}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -12137,6 +12302,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1926536082}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: aeed1d0e290c44cd69bc64378efbd99c, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e0b040871f9b49afbe5974b8b0b5fb0, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x

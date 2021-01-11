@@ -218,9 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charactersPerSecond: 20
   talkingEffects:
-  - {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
-  - {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
-  - {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
+  - {fileID: 8300000, guid: c8a2bb1b14e3a4460abfb25f7a1d75ae, type: 3}
+  - {fileID: 8300000, guid: 088f319cb49c7425184b224f8427ae92, type: 3}
+  - {fileID: 8300000, guid: d083506d36589485b92a4eb384ae5d77, type: 3}
 --- !u!82 &6047279155378469331
 AudioSource:
   m_ObjectHideFlags: 0
