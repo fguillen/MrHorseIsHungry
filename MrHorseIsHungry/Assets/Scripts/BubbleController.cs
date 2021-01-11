@@ -14,10 +14,14 @@ public class BubbleController : MonoBehaviour
 
     bool finished;
     bool isShown;
+
+    [SerializeField] AudioClip[] talkingEffects;
+    AudioSource audioSource;
     void Start()
     {
         animator = GetComponent<Animator>();       
         textUI = GetComponentInChildren<TextMeshProUGUI>();
+        audioSource = GetComponent<AudioSource>();
 
         originalText = textUI.text;
 
@@ -61,6 +65,7 @@ public class BubbleController : MonoBehaviour
 
         if(lettersToShowCount >= lettersCount)
         {
+            audioSource.Stop();
             finished = true;
         }
 
@@ -69,6 +74,8 @@ public class BubbleController : MonoBehaviour
     public void Appear()
     {
         animator.SetTrigger("appear");
+        audioSource.clip = talkingEffects[UnityEngine.Random.Range(0, talkingEffects.Length)];
+        audioSource.Play();   
         isShown = true;
         finished = false;
         startWrittingAt = Time.time;
@@ -78,6 +85,7 @@ public class BubbleController : MonoBehaviour
     {
         animator.SetTrigger("disappear");
         isShown = false;
+        audioSource.Stop();
     }
 
 }

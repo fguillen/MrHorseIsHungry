@@ -217,6 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactersPerSecond: 20
+  talkingEffects:
+  - {fileID: 8300000, guid: 23209a73b116b453bb8e5a8c03a60f41, type: 3}
+  - {fileID: 8300000, guid: 1e71df2826ab44549a2bcd8a10953726, type: 3}
+  - {fileID: 8300000, guid: b04ddf54c9ed54937b6fecc9423d94f8, type: 3}
 --- !u!82 &6047279155378469331
 AudioSource:
   m_ObjectHideFlags: 0
