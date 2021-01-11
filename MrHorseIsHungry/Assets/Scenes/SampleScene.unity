@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33317306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.505383, y: -1.0916723, z: 61.822945}
+  m_LocalPosition: {x: -42.50538, y: -1.0916723, z: 61.822945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 815113044}
@@ -2801,6 +2801,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 292722807}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc2fb12f1d0e2438caeea51bfd909ff8, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc017fd920e5345928acf90a0d6bb442, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 83b652fbc58fd4be79f33fd78f63dce3, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3610,7 +3625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.3, y: 0.4066, z: -10}
+  m_LocalPosition: {x: -18.3, y: 0.4066, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4296,6 +4311,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 292722807}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc2fb12f1d0e2438caeea51bfd909ff8, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc017fd920e5345928acf90a0d6bb442, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 83b652fbc58fd4be79f33fd78f63dce3, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -9739,6 +9769,21 @@ PrefabInstance:
       propertyPath: bubblesController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc2fb12f1d0e2438caeea51bfd909ff8, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc017fd920e5345928acf90a0d6bb442, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 83b652fbc58fd4be79f33fd78f63dce3, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -12562,6 +12607,7 @@ GameObject:
   - component: {fileID: 1949005103}
   - component: {fileID: 1949005104}
   - component: {fileID: 1949005105}
+  - component: {fileID: 1949005106}
   m_Layer: 0
   m_Name: MsGiraffe
   m_TagString: Untagged
@@ -12645,6 +12691,9 @@ MonoBehaviour:
   state: 
   particlesBiteApple: {fileID: 4303266084525098850, guid: 3099e3076794243a48e1a43cb6b33c21,
     type: 3}
+  clipsAppleBite:
+  - {fileID: 8300000, guid: f2906c9e0d7e54292978d0c79ce5a38e, type: 3}
+  - {fileID: 8300000, guid: 4f1586f45ce484b36925763c6cb52ccf, type: 3}
 --- !u!114 &1949005104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12664,8 +12713,7 @@ MonoBehaviour:
   bubble05IseeYouAreVeryHungry: {fileID: 810833727}
   bubble06DoYouWantAnotherApple: {fileID: 897745309}
   bubble07NoMoreApples: {fileID: 2035588866}
-  bubbleActive: 0
-  waitingForAutomaticNextStep: 0
+  bubbleControllers: []
   step: 0
 --- !u!114 &1949005105
 MonoBehaviour:
@@ -12679,6 +12727,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5331df6e1b24afdae35fcc711b5078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1949005106
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949005100}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -9169271854637517213, guid: fd0cec5a7dcb24fa7848a6d10fd35df7,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1957641744
 GameObject:
   m_ObjectHideFlags: 0
@@ -12850,6 +12995,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 292722807}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc2fb12f1d0e2438caeea51bfd909ff8, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc017fd920e5345928acf90a0d6bb442, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 83b652fbc58fd4be79f33fd78f63dce3, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -13097,6 +13257,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 292722807}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc2fb12f1d0e2438caeea51bfd909ff8, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc017fd920e5345928acf90a0d6bb442, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 83b652fbc58fd4be79f33fd78f63dce3, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -13325,6 +13500,7 @@ GameObject:
   - component: {fileID: 2018693715}
   - component: {fileID: 2018693713}
   - component: {fileID: 2018693716}
+  - component: {fileID: 2018693710}
   m_Layer: 0
   m_Name: MrHorse
   m_TagString: MrHorse
@@ -13332,6 +13508,103 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &2018693710
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018693709}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -9169271854637517213, guid: fd0cec5a7dcb24fa7848a6d10fd35df7,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &2018693711
 Animator:
   serializedVersion: 3
@@ -13359,7 +13632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018693709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.3, y: -3.29, z: 0}
+  m_LocalPosition: {x: -18.3, y: -3.29, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 1871476702}
@@ -13392,6 +13665,12 @@ MonoBehaviour:
   particlesBiteAir: {fileID: 5730577554653168174, guid: 3428447785ff84158b5cff5aa8141bf3,
     type: 3}
   mouth: {fileID: 1643614431}
+  clipsWalk:
+  - {fileID: 8300000, guid: 2d8c81c97ad0f40ff8b4669eab745441, type: 3}
+  - {fileID: 8300000, guid: 120d19f586b504d8ba823d7718a9f775, type: 3}
+  - {fileID: 8300000, guid: bf160b1773dc94ddda488cdf811dbb5d, type: 3}
+  - {fileID: 8300000, guid: 7248b2afd273e4e0695e5b6fafb85955, type: 3}
+  clipRainbowBurp: {fileID: 8300000, guid: 7afe0cbd8a47546a1b738546d0b68437, type: 3}
 --- !u!50 &2018693714
 Rigidbody2D:
   serializedVersion: 4

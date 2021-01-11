@@ -27,12 +27,15 @@ public class MsGiraffeController : MonoBehaviour
     [SerializeField] string state;
 
     [SerializeField] ParticleSystem particlesBiteApple;
+    [SerializeField] AudioClip[] clipsAppleBite;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         bubblesController = GetComponent<MsGiraffeBubblesController>();
+        audioSource = GetComponent<AudioSource>();
         numOfApplesInCest = 5;
         numOfBites = 0;
         RenderApplesInCest();
@@ -113,6 +116,7 @@ public class MsGiraffeController : MonoBehaviour
     {
         print("AppleBitten");
 
+        audioSource.PlayOneShot(clipsAppleBite[UnityEngine.Random.Range(0, clipsAppleBite.Length)]);
         Instantiate(particlesBiteApple, apple.transform.position, Quaternion.identity);
         
         numOfBites += 1;

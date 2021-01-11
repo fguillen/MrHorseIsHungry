@@ -18,6 +18,9 @@ public class MrHorseController : MonoBehaviour
     [SerializeField] bool tutorialShownCloseDialogue;
     [SerializeField] ParticleSystem particlesBiteAir;
     [SerializeField] GameObject mouth;
+    [SerializeField] AudioClip[] clipsWalk;
+    [SerializeField] AudioClip clipRainbowBurp;
+    AudioSource audioSource; 
 
 
     bool endSceneStarted;
@@ -29,6 +32,8 @@ public class MrHorseController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
+        
         originalScaleX = figure.transform.localScale.x;
         endSceneStarted = false;
         leftLimitReached = false;
@@ -75,6 +80,12 @@ public class MrHorseController : MonoBehaviour
         }
 
         rb.velocity = new Vector2(horizontal * speed, 0);
+
+        // For debugging
+        // if(Input.GetButtonDown("Jump"))
+        // {
+        //     StartEndScene();
+        // }
 
         // Fire
         if(
@@ -132,12 +143,12 @@ public class MrHorseController : MonoBehaviour
         print("Horse Talk");
     }
 
-    public void Burp()
+    public void EndScene()
     {
-        animator.SetTrigger("burp");
+        animator.SetTrigger("endScene");
     }
 
-    public void BurpEnds()
+    public void EndSceneFinished()
     {
         bubblesController.NextStep();
     }
@@ -160,5 +171,22 @@ public class MrHorseController : MonoBehaviour
             bubblesController.ShowImHungryBubble();
             imHungryBubbleShown = true;
         }
+    }
+
+    void RainbowBurpStarts()
+    {
+        audioSource.clip = clipRainbowBurp;
+        audioSource.Play();
+    }
+
+    void RainbowBurpEnds()
+    {
+        audioSource.Stop();
+    }
+
+    void WalkStep()
+    {
+        var clip = clipsWalk[UnityEngine.Random.Range(0, clipsWalk.Length)];
+        audioSource.PlayOneShot(clip);
     }
 }

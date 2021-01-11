@@ -1339,8 +1339,22 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 4.8333335
+    functionName: RainbowBurpStarts
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 7.3333335
+    functionName: RainbowBurpEnds
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 7.35
-    functionName: BurpEnds
+    functionName: EndSceneFinished
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

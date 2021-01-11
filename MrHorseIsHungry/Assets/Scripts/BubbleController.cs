@@ -91,6 +91,7 @@ public class BubbleController : MonoBehaviour
         this.callback = callback;
         animator.SetTrigger("appear");
         audioSource.clip = talkingEffects[UnityEngine.Random.Range(0, talkingEffects.Length)];
+        print("Clip Name: " + audioSource.clip.name);
         audioSource.Play();   
         finished = false;
         isShown = true;

@@ -78,7 +78,7 @@ public class MrHorseBubblesController : MonoBehaviour
                 break;
             case 4:
                 bubble02NoHungry.Disappear();
-                ObjectsReferrer.instance.mrHorseController.Burp();
+                ObjectsReferrer.instance.mrHorseController.EndScene();
                 SetBubbleNotActiveNextFrame();
                 break;
             case 5:
