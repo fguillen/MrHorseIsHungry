@@ -16,7 +16,7 @@ public class MrHorseBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubbleTutorial02Bite;
     
 
-    List<BubbleController> bubblesControllerActive;
+    List<BubbleController> bubbleControllersActive;
 
     public bool bubbleActive;
     public bool waitingForAutomaticNextStep;
@@ -31,13 +31,13 @@ public class MrHorseBubblesController : MonoBehaviour
         waitingForAutomaticNextStep = false;
         bubbleActive = false;
 
-        bubblesControllerActive = new List<BubbleController>();
+        bubbleControllersActive = new List<BubbleController>();
     }
 
     void Update()
     {
         if(
-            !bubblesControllerActive.Any() &&
+            !bubbleControllersActive.Any() &&
             bubbleActive && 
             !waitingForAutomaticNextStep &&
             Input.GetButtonDown("Jump") &&
@@ -47,9 +47,10 @@ public class MrHorseBubblesController : MonoBehaviour
             NextStep();
         }
 
-        if(bubblesControllerActive.Any() && Input.GetButtonDown("Jump"))
+
+        if(bubbleControllersActive.Any())
         {
-            HideBubbles();
+            CheckIfBubbleIsNotShownAnyMore();
         }
     }
 
@@ -108,22 +109,17 @@ public class MrHorseBubblesController : MonoBehaviour
 
     void ShowBubble(BubbleController bubbleController){
         bubbleController.Appear();
-        bubblesControllerActive.Add(bubbleController);
+        bubbleControllersActive.Add(bubbleController);
     }
 
-    void HideBubbles()
+    void CheckIfBubbleIsNotShownAnyMore()
     {
-        foreach (var bubbleController in bubblesControllerActive)
-        {
-            bubbleController.Disappear();
-        }
-
-        bubblesControllerActive.Clear();
+        bubbleControllersActive = bubbleControllersActive.FindAll(e => e.isShown);
     }
 
     public bool IsBubbleActive()
     {
-        return (bubbleActive || bubblesControllerActive.Any());
+        return (bubbleActive || bubbleControllersActive.Any());
     }
 
     public void ShowLeftLimitBubble()

@@ -13,7 +13,7 @@ public class BubbleController : MonoBehaviour
     float startWrittingAt;
 
     bool finished;
-    bool isShown;
+    public bool isShown;
 
     [SerializeField] AudioClip[] talkingEffects;
     AudioSource audioSource;
@@ -35,6 +35,17 @@ public class BubbleController : MonoBehaviour
         if(isShown && !finished)
         {
             UpdateText();
+        }
+
+        if(isShown && finished && Input.GetButtonDown("Jump"))
+        {
+            Disappear();
+        }
+
+        if(isShown && !finished && Input.GetButtonDown("Jump"))
+        {
+            textUI.text = originalText;
+            FinishWritting();
         }
     }
 
@@ -65,8 +76,7 @@ public class BubbleController : MonoBehaviour
 
         if(lettersToShowCount >= lettersCount)
         {
-            audioSource.Stop();
-            finished = true;
+            FinishWritting();
         }
 
     }
@@ -85,6 +95,12 @@ public class BubbleController : MonoBehaviour
     {
         animator.SetTrigger("disappear");
         isShown = false;
+        FinishWritting();
+    }
+
+    public void FinishWritting()
+    {
+        finished = true;
         audioSource.Stop();
     }
 
