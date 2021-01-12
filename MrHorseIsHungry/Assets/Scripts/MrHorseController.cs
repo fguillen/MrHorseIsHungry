@@ -15,10 +15,13 @@ public class MrHorseController : MonoBehaviour
     [SerializeField] bool tutorialShown;
     [SerializeField] bool tutorialShownBite;
     [SerializeField] ParticleSystem particlesBiteAir;
+    [SerializeField] ParticleSystem particlesWalk;
     [SerializeField] GameObject mouth;
     [SerializeField] AudioClip[] clipsWalk;
     [SerializeField] AudioClip[] clipsBite;
     [SerializeField] AudioClip clipRainbowBurp;
+    [SerializeField] Transform footPosition;
+
     AudioSource audioSourceWalk; 
     AudioSource audioSourceBite;
 
@@ -103,7 +106,6 @@ public class MrHorseController : MonoBehaviour
         
         var particles = Instantiate(particlesBiteAir, mouth.transform.position, Quaternion.identity);
         Destroy(particles.gameObject, 10);
-
     }
 
     public void CheckShowTutorials()
@@ -175,6 +177,15 @@ public class MrHorseController : MonoBehaviour
     {
         var clip = clipsWalk[UnityEngine.Random.Range(0, clipsWalk.Length)];
         audioSourceWalk.PlayOneShot(clip);
+
+        // Walk particles
+        Quaternion rotation = Quaternion.identity;
+        if(figure.transform.localScale.x < 0){
+            rotation = Quaternion.Euler(0,180f,0);
+        }
+        var particles = Instantiate(particlesWalk, footPosition.position, rotation);
+
+        Destroy(particles.gameObject, 10f);
     }
 
     bool IsSceneFrozen()

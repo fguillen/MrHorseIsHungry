@@ -12352,6 +12352,7 @@ Transform:
   - {fileID: 992508865}
   - {fileID: 1643614432}
   - {fileID: 80303237}
+  - {fileID: 1994770358}
   m_Father: {fileID: 2018693712}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13219,6 +13220,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1994770357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994770358}
+  m_Layer: 0
+  m_Name: FootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1994770358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994770357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1871476702}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2001965316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13894,6 +13925,8 @@ MonoBehaviour:
   tutorialShownBite: 0
   particlesBiteAir: {fileID: 5730577554653168174, guid: 3428447785ff84158b5cff5aa8141bf3,
     type: 3}
+  particlesWalk: {fileID: 4303266084525098850, guid: cc44212b874d143ec928cb707458994a,
+    type: 3}
   mouth: {fileID: 1643614431}
   clipsWalk:
   - {fileID: 8300000, guid: 2d8c81c97ad0f40ff8b4669eab745441, type: 3}
@@ -13905,6 +13938,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d9dd721c309904e928df9d92a5363e1d, type: 3}
   - {fileID: 8300000, guid: a89c5898bf1b5412686aa702277f4642, type: 3}
   clipRainbowBurp: {fileID: 8300000, guid: 7afe0cbd8a47546a1b738546d0b68437, type: 3}
+  footPosition: {fileID: 1994770358}
 --- !u!50 &2018693714
 Rigidbody2D:
   serializedVersion: 4
