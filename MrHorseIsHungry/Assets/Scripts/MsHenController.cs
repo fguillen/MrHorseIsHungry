@@ -100,7 +100,6 @@ public class MsHenController : MonoBehaviour
     public void EggFinished()
     {
         print("Egg finished");
-        bubblesController.step = 9;
         bubblesController.NextStep();
     }
 
@@ -114,11 +113,12 @@ public class MsHenController : MonoBehaviour
         print("MsHen Continue Talking");
 
         if(
-            IsIdle() &&
+            IsIdle() 
+            &&
             (
                 bubblesController.step == 0 ||
-                bubblesController.step == 4 ||
-                bubblesController.step == 11
+                bubblesController.step == 2 ||
+                bubblesController.step == 8
             )
         )
         {

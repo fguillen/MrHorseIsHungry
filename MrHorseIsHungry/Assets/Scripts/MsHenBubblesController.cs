@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class MsHenBubblesController : MonoBehaviour
@@ -11,27 +12,15 @@ public class MsHenBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble04WaitASecond;
     [SerializeField] BubbleController bubble05TakeThisEgg;
     [SerializeField] BubbleController bubble06NoMoreEgg;
-
-    public bool bubbleActive;
-    public bool waitingForAutomaticNextStep;
+    List<BubbleController> bubbleControllers;
 
     public int step;
 
     void Start()
     {
         step = 0;
-        SetBubbleNotActiveNextFrame();
-        waitingForAutomaticNextStep = false;
-        bubbleActive = false;
-    }
-
-    void Update()
-    {
-        if(bubbleActive && !waitingForAutomaticNextStep && Input.GetButtonDown("Jump"))
-        {
-            print("MsHenBubblesController Jump");
-            NextStep();
-        }
+        bubbleControllers = new List<BubbleController>();
+        InitializeBubbleControllersList();
     }
 
     public void NextStep()
@@ -40,97 +29,79 @@ public class MsHenBubblesController : MonoBehaviour
 
         print("MsHen step: " + step);
 
-        waitingForAutomaticNextStep = false;
-
         switch (step)
         {
             case 1:
                 ObjectsReferrer.instance.virtualCameraController.TargetMsHen();
-                bubble01Hello.Appear();
-                ActivateBubble();
+                bubble01Hello.Appear(NextStep);
                 ObjectsReferrer.instance.msHenController.Talk();
                 break;
             case 2:
-                bubble01Hello.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
-                break;
-            case 3:
                 bubble02NiceMorning.Appear();
                 ObjectsReferrer.instance.msHenController.Talk();
                 break;
+            case 3:
+                bubble03YouAreHungry.Appear(NextStep);
+                ObjectsReferrer.instance.msHenController.Talk();
+                break;
             case 4:
-                bubble02NiceMorning.Disappear();
-                SetBubbleNotActiveNextFrame();
+                bubble04WaitASecond.Appear(NextStep);
+                ObjectsReferrer.instance.msHenController.Talk();
                 break;
             case 5:
-                bubble03YouAreHungry.Appear();
-                ActivateBubble();
-                ObjectsReferrer.instance.msHenController.Talk();
-                break;
-            case 6:
-                bubble03YouAreHungry.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
-                break;
-            case 7:
-                bubble04WaitASecond.Appear();
-                ObjectsReferrer.instance.msHenController.Talk();
-                break;
-            case 8:
-                bubble04WaitASecond.Disappear();
-                SetBubbleNotActiveNextFrame();
                 Invoke("NextStep", 0.5f);
                 break;
 
             // Offering Egg
-            case 9:
+            case 6:
                 ObjectsReferrer.instance.msHenController.OfferEgg();
                 break;
-            case 10:
-                bubble05TakeThisEgg.Appear();
-                ActivateBubble();
+            case 7:
+                bubble05TakeThisEgg.Appear(NextStep);
                 ObjectsReferrer.instance.msHenController.Talk();
                 break;
-            case 11:
-                bubble05TakeThisEgg.Disappear();
-                SetBubbleNotActiveNextFrame();
+            case 8:
+                // wait here
                 break;
             
             
             // Block repeated infintely :: INI
-            case 12: // No More Bead
+            case 9: // No More Bead
                 ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
                 bubble06NoMoreEgg.Appear();
-                ActivateBubble();
                 ObjectsReferrer.instance.msHenController.Talk();
-                break;
-            case 13:
-                bubble06NoMoreEgg.Disappear();
-                SetBubbleNotActiveNextFrame();
-                step = 11;
+                step = 8;
                 break;
             // Block repeated infintely :: END
  
             default:
                 throw new ArgumentException("step not valid: " + step);
         }
-    }
-    void ActivateBubble()
-    {
-        print("bubbleActive: true");
-        bubbleActive = true;
+    }    
+    
+    void InitializeBubbleControllersList()
+    {        
+        // I have tried to use some metaprogramming
+        //   to initialize this List but I was not able
+        //   I have tried PropertyInfo but didn't work:
+        // #
+        // var propertyInfos = this.GetType().GetProperties();
+        // foreach (System.Reflection.PropertyInfo propertyInfo in propertyInfos)
+        // {
+        //     bubbleControllers.Add((BubbleController)propertyInfo.GetValue(this, null));
+        // }
+        // #
+
+        bubbleControllers.Add(bubble01Hello);
+        bubbleControllers.Add(bubble02NiceMorning);
+        bubbleControllers.Add(bubble03YouAreHungry);
+        bubbleControllers.Add(bubble04WaitASecond);
+        bubbleControllers.Add(bubble05TakeThisEgg);
+        bubbleControllers.Add(bubble06NoMoreEgg);
     }
 
-    void SetBubbleNotActiveNextFrame()
+    public bool AnyBubbleActive()
     {
-        StartCoroutine(SetBubbleNotActiveNextFrameCoroutine());
-    }
-
-    IEnumerator SetBubbleNotActiveNextFrameCoroutine()
-    {
-        yield return null;
-        print("bubbleActive: false");
-        bubbleActive = false;
+        return bubbleControllers.Any(e => e.isShown);
     }
 }

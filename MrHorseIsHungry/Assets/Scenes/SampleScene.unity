@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33317306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.405382, y: -1.0916723, z: 61.822945}
+  m_LocalPosition: {x: 24.19462, y: -1.0916723, z: 61.822945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 815113044}
@@ -3640,7 +3640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.8, y: 0.4066, z: -10}
+  m_LocalPosition: {x: 48.4, y: 0.4066, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9057,8 +9057,6 @@ MonoBehaviour:
   bubble04WaitASecond: {fileID: 1541325286}
   bubble05TakeThisEgg: {fileID: 2138466773}
   bubble06NoMoreEgg: {fileID: 1386364999}
-  bubbleActive: 0
-  waitingForAutomaticNextStep: 0
   step: 0
 --- !u!114 &1335087518
 MonoBehaviour:
@@ -13659,7 +13657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018693709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.8, y: -3.29, z: 0}
+  m_LocalPosition: {x: 48.4, y: -3.29, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 1871476702}

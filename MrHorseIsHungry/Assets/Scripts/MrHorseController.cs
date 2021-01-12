@@ -44,14 +44,8 @@ public class MrHorseController : MonoBehaviour
 
         float horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Not moving if Giraffe talking or End Scene started
-        if(
-            ObjectsReferrer.instance.msGiraffeBubblesController.AnyBubbleActive() ||
-            ObjectsReferrer.instance.mrElephantBubblesController.AnyBubbleActive() ||
-            ObjectsReferrer.instance.msHenBubblesController.bubbleActive ||
-            ObjectsReferrer.instance.mrHorseBubblesController.AnyBubbleActive() || 
-            endSceneStarted
-        )
+        // Not moving if the scene is frozen
+        if(IsSceneFrozen())
         {
             horizontal = 0;
         }
@@ -87,11 +81,7 @@ public class MrHorseController : MonoBehaviour
 
         // Fire
         if(
-            !ObjectsReferrer.instance.msGiraffeBubblesController.AnyBubbleActive() && 
-            !ObjectsReferrer.instance.mrElephantBubblesController.AnyBubbleActive() && 
-            !ObjectsReferrer.instance.msHenBubblesController.bubbleActive &&
-            !ObjectsReferrer.instance.mrHorseBubblesController.AnyBubbleActive() &&
-            !endSceneStarted &&
+            !IsSceneFrozen() &&
             Input.GetButtonDown("Jump"))
         {
             Bite();
@@ -177,5 +167,16 @@ public class MrHorseController : MonoBehaviour
     {
         var clip = clipsWalk[UnityEngine.Random.Range(0, clipsWalk.Length)];
         audioSource.PlayOneShot(clip);
+    }
+
+    bool IsSceneFrozen()
+    {
+        return(
+            ObjectsReferrer.instance.msGiraffeBubblesController.AnyBubbleActive() || 
+            ObjectsReferrer.instance.mrElephantBubblesController.AnyBubbleActive() || 
+            ObjectsReferrer.instance.msHenBubblesController.AnyBubbleActive() ||
+            ObjectsReferrer.instance.mrHorseBubblesController.AnyBubbleActive() ||
+            endSceneStarted
+        );
     }
 }
