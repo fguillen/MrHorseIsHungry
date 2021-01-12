@@ -36,6 +36,7 @@ public class MsGiraffeController : MonoBehaviour
         animator = GetComponent<Animator>();
         bubblesController = GetComponent<MsGiraffeBubblesController>();
         audioSource = GetComponent<AudioSource>();
+        
         numOfApplesInCest = 5;
         numOfBites = 0;
         RenderApplesInCest();

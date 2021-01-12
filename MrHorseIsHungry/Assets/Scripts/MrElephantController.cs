@@ -16,24 +16,30 @@ public class MrElephantController : MonoBehaviour
     [SerializeField] GameObject breadColliderBites2;
     [SerializeField] GameObject breadColliderBites3; 
     [SerializeField] MrElephantBubblesController bubblesController;
-
+    [SerializeField] ParticleSystem particlesBiteBread;
     Animator animator;
-
     public int breadNumBites;
 
     [SerializeField] string state;
 
+    [SerializeField] AudioClip[] clipsBreadBite;
+    AudioSource audioSource;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
         breadNumBites = 0;
         DeactivateBreadColliders();
         RenderBread();
         state = "idle";
     }
 
-    public void BreadBitten(){
+    public void BreadBitten(Collider2D collider2D){
         breadNumBites ++;
+        audioSource.PlayOneShot(clipsBreadBite[UnityEngine.Random.Range(0, clipsBreadBite.Length)]);
+        Instantiate(particlesBiteBread, collider2D.transform.position, Quaternion.identity);
         RenderBread();
         Invoke("Idle", 0.2f);
     }

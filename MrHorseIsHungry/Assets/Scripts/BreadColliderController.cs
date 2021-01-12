@@ -9,7 +9,7 @@ public class BreadColliderController : MonoBehaviour
         if(other.gameObject.CompareTag("MrHorseMouth"))
         {
             print("Bread Bitten");
-            ObjectsReferrer.instance.mrElephantController.BreadBitten();
+            ObjectsReferrer.instance.mrElephantController.BreadBitten(other);
         }
     }
 }
