@@ -119,7 +119,7 @@ public class MsGiraffeController : MonoBehaviour
 
         audioSource.PlayOneShot(clipsAppleBite[UnityEngine.Random.Range(0, clipsAppleBite.Length)]);
         var particles = Instantiate(particlesBiteApple, apple.transform.position, Quaternion.identity);
-        Destroy(particles, 10);
+        Destroy(particles.gameObject, 10);
         
         numOfBites += 1;
 

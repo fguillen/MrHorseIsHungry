@@ -42,16 +42,22 @@ public class MsHenController : MonoBehaviour
     public void EggBitten(Collider2D collider2D){
         eggNumBites ++;
 
-        if(eggNumBites >= 5)
+        if(eggNumBites > 6)
+        {
+            print("ERROR eggNumBittes bigger than 6: " + eggNumBites);
+            return;
+        }
+
+        if(eggNumBites == 5)
         {
             Invoke("Idle", 0.5f);
-        } else {
-            RenderEgg();
+        } 
 
-            audioSource.PlayOneShot(clipsEggBite[UnityEngine.Random.Range(0, clipsEggBite.Length)]);
-            var particles = Instantiate(particlesBiteEgg, collider2D.transform.position, Quaternion.identity);
-            Destroy(particles, 10);
-        }
+        RenderEgg();
+
+        audioSource.PlayOneShot(clipsEggBite[UnityEngine.Random.Range(0, clipsEggBite.Length)]);
+        var particles = Instantiate(particlesBiteEgg, collider2D.transform.position, Quaternion.identity);
+        Destroy(particles.gameObject, 10);
     }
 
     public void Idle()

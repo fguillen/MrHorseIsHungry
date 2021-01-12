@@ -41,7 +41,7 @@ public class MrElephantController : MonoBehaviour
         audioSource.PlayOneShot(clipsBreadBite[UnityEngine.Random.Range(0, clipsBreadBite.Length)]);
 
         var particles = Instantiate(particlesBiteBread, collider2D.transform.position, Quaternion.identity);
-        Destroy(particles, 10);
+        Destroy(particles.gameObject, 10);
 
         RenderBread();
         Invoke("Idle", 0.2f);

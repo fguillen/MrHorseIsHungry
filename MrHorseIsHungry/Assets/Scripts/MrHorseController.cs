@@ -102,7 +102,7 @@ public class MrHorseController : MonoBehaviour
         audioSourceBite.PlayOneShot(clip);
         
         var particles = Instantiate(particlesBiteAir, mouth.transform.position, Quaternion.identity);
-        Destroy(particles, 10);
+        Destroy(particles.gameObject, 10);
 
     }
 
