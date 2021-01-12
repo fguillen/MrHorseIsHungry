@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33317306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.50538, y: -1.0916723, z: 61.822945}
+  m_LocalPosition: {x: -43.30538, y: -1.0916723, z: 61.822945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 815113044}
@@ -2293,6 +2293,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 660902359}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c9d751aa441248f2940499e785f3329, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c672355a625094b9084ab9c73207a780, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3625,7 +3640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.3, y: 0.4066, z: -10}
+  m_LocalPosition: {x: -19.1, y: 0.4066, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6165,6 +6180,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 660902359}
     m_Modifications:
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c9d751aa441248f2940499e785f3329, type: 3}
+    - target: {fileID: 3232519101779645279, guid: 3f3a65ed0f1aa44d591b102bac9daded,
+        type: 3}
+      propertyPath: talkingEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c672355a625094b9084ab9c73207a780, type: 3}
     - target: {fileID: 4256826500781986030, guid: 3f3a65ed0f1aa44d591b102bac9daded,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -12713,7 +12743,6 @@ MonoBehaviour:
   bubble05IseeYouAreVeryHungry: {fileID: 810833727}
   bubble06DoYouWantAnotherApple: {fileID: 897745309}
   bubble07NoMoreApples: {fileID: 2035588866}
-  bubbleControllers: []
   step: 0
 --- !u!114 &1949005105
 MonoBehaviour:
@@ -13632,7 +13661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018693709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.3, y: -3.29, z: 0}
+  m_LocalPosition: {x: -19.1, y: -3.29, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 1871476702}
@@ -13657,11 +13686,9 @@ MonoBehaviour:
   speed: 3.5
   bubblesController: {fileID: 2018693716}
   figure: {fileID: 1871476701}
-  tutorialWaitSecondsWalk: 3
-  tutorialWaitSecondsBite: 3.5
-  tutorialShownWalk: 0
+  tutorialWaitSeconds: 1
+  tutorialShown: 0
   tutorialShownBite: 0
-  tutorialShownCloseDialogue: 0
   particlesBiteAir: {fileID: 5730577554653168174, guid: 3428447785ff84158b5cff5aa8141bf3,
     type: 3}
   mouth: {fileID: 1643614431}
@@ -13735,10 +13762,8 @@ MonoBehaviour:
   bubble01ItsNice: {fileID: 1398133593}
   bubble02NoHungry: {fileID: 1714307951}
   bubble03End: {fileID: 1449055795}
-  bubbleTutorial01Walk: {fileID: 748548745}
-  bubbleTutorial02Bite: {fileID: 1769486460}
-  bubbleActive: 0
-  waitingForAutomaticNextStep: 0
+  bubbleTutorial01Bite: {fileID: 1769486460}
+  bubbleTutorial02Walk: {fileID: 748548745}
   step: 0
 --- !u!1 &2032634380
 GameObject:

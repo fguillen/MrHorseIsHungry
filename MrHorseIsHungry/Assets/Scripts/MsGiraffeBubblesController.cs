@@ -15,26 +15,22 @@ public class MsGiraffeBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble06DoYouWantAnotherApple;
     [SerializeField] BubbleController bubble07NoMoreApples;
 
-    [SerializeField] List<BubbleController> bubbleControllers;
+    List<BubbleController> bubbleControllers;
 
     public int step;
 
     void Start()
     {
         step = 0;
-        // bubbleControllers = new List<BubbleController>();
+        bubbleControllers = new List<BubbleController>();
         InitializeBubbleControllersList();
-    }
-
-    void Update()
-    {
     }
 
     public void NextStep()
     {
         step ++;
 
-        print("Ms Giraffe step: " + step);
+        print("MsGiraffe step: " + step);
 
         switch (step)
         {

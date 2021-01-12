@@ -11,11 +11,9 @@ public class MrHorseController : MonoBehaviour
     [SerializeField] MrHorseBubblesController bubblesController;
     [SerializeField] GameObject figure;
 
-    [SerializeField] float tutorialWaitSecondsWalk;
-    [SerializeField] float tutorialWaitSecondsBite;
-    [SerializeField] bool tutorialShownWalk;
+    [SerializeField] float tutorialWaitSeconds;
+    [SerializeField] bool tutorialShown;
     [SerializeField] bool tutorialShownBite;
-    [SerializeField] bool tutorialShownCloseDialogue;
     [SerializeField] ParticleSystem particlesBiteAir;
     [SerializeField] GameObject mouth;
     [SerializeField] AudioClip[] clipsWalk;
@@ -51,7 +49,7 @@ public class MrHorseController : MonoBehaviour
             ObjectsReferrer.instance.msGiraffeBubblesController.AnyBubbleActive() ||
             ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive ||
             ObjectsReferrer.instance.msHenBubblesController.bubbleActive ||
-            ObjectsReferrer.instance.mrHorseBubblesController.IsBubbleActive() || 
+            ObjectsReferrer.instance.mrHorseBubblesController.AnyBubbleActive() || 
             endSceneStarted
         )
         {
@@ -92,7 +90,7 @@ public class MrHorseController : MonoBehaviour
             !ObjectsReferrer.instance.msGiraffeBubblesController.AnyBubbleActive() && 
             !ObjectsReferrer.instance.mrElephantBubblesController.bubbleActive && 
             !ObjectsReferrer.instance.msHenBubblesController.bubbleActive &&
-            !ObjectsReferrer.instance.mrHorseBubblesController.IsBubbleActive() &&
+            !ObjectsReferrer.instance.mrHorseBubblesController.AnyBubbleActive() &&
             !endSceneStarted &&
             Input.GetButtonDown("Jump"))
         {
@@ -112,21 +110,12 @@ public class MrHorseController : MonoBehaviour
 
     public void CheckShowTutorials()
     {
-        if(!tutorialShownWalk){
-            tutorialWaitSecondsWalk -= Time.deltaTime;
-            if(tutorialWaitSecondsWalk < 0)
+        if(!tutorialShown){
+            tutorialWaitSeconds -= Time.deltaTime;
+            if(tutorialWaitSeconds < 0)
             {
-                bubblesController.ShowTutorialWalk();
-                tutorialShownWalk = true;
-            }
-        }
-
-        if(!tutorialShownBite){
-            tutorialWaitSecondsBite -= Time.deltaTime;
-            if(tutorialWaitSecondsBite < 0)
-            {
-                bubblesController.ShowTutorialBite();
-                tutorialShownBite = true;
+                bubblesController.ShowTutorial();
+                tutorialShown = true;
             }
         }
     }

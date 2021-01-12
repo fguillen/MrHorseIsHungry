@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using TMPro;
 
@@ -16,6 +17,7 @@ public class BubbleController : MonoBehaviour
     Action callback;
 
     [SerializeField] AudioClip[] talkingEffects;
+    int lastTalkingEffectIndex;
     AudioSource audioSource;
     void Start()
     {
@@ -90,9 +92,7 @@ public class BubbleController : MonoBehaviour
     {
         this.callback = callback;
         animator.SetTrigger("appear");
-        audioSource.clip = talkingEffects[UnityEngine.Random.Range(0, talkingEffects.Length)];
-        print("Clip Name: " + audioSource.clip.name);
-        audioSource.Play();   
+        PlayRandomTalkingEffect();
         finished = false;
         isShown = true;
         startWrittingAt = Time.time;
@@ -119,6 +119,29 @@ public class BubbleController : MonoBehaviour
     {
         isShown = false;
         callback?.Invoke();
+    }
+
+    void PlayRandomTalkingEffect()
+    {
+        // Not Play if not talking effects
+        if(talkingEffects.Length == 0)
+        {
+            print("WARNING: there is not talkingEffectClips on this Bubble '" + originalText + "'");
+            return;
+        }
+
+        // We choose one that is not the actual one
+        if(talkingEffects.Length == 1)
+        {
+            audioSource.clip = talkingEffects[0];
+        } else {
+            var clipsNotActual = talkingEffects.Where(e => audioSource.clip != e);
+            audioSource.clip  = clipsNotActual.ElementAt(UnityEngine.Random.Range(0, clipsNotActual.Count()));
+        }
+
+        print("Bubble takingEffectClip: " + audioSource.clip.name);
+
+        audioSource.Play();   
     }
 
 }

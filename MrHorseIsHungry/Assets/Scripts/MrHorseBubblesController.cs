@@ -11,83 +11,41 @@ public class MrHorseBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble01ItsNice;
     [SerializeField] BubbleController bubble02NoHungry;
     [SerializeField] BubbleController bubble03End;
-
-    [SerializeField] BubbleController bubbleTutorial01Walk;
-    [SerializeField] BubbleController bubbleTutorial02Bite;
+    [SerializeField] BubbleController bubbleTutorial01Bite;
+    [SerializeField] BubbleController bubbleTutorial02Walk;
     
-
-    List<BubbleController> bubbleControllersActive;
-
-    public bool bubbleActive;
-    public bool waitingForAutomaticNextStep;
+    List<BubbleController> bubbleControllers;
 
     public int step;
 
     void Start()
     {
         step = 0;
-        SetBubbleNotActiveNextFrame();
-
-        waitingForAutomaticNextStep = false;
-        bubbleActive = false;
-
-        bubbleControllersActive = new List<BubbleController>();
-    }
-
-    void Update()
-    {
-        if(
-            !bubbleControllersActive.Any() &&
-            bubbleActive && 
-            !waitingForAutomaticNextStep &&
-            Input.GetButtonDown("Jump") &&
-            step < 4 // After this no more control
-        ){
-            print("MrHorseBubblesController Jump");
-            NextStep();
-        }
-
-
-        if(bubbleControllersActive.Any())
-        {
-            CheckIfBubbleIsNotShownAnyMore();
-        }
+        bubbleControllers = new List<BubbleController>();
+        InitializeBubbleControllersList();
     }
 
     public void NextStep()
     {
         step ++;
 
-        waitingForAutomaticNextStep = false;
+        print("MrHorse step: " + step);
 
         switch (step)
         {
             case 1:
-                bubble01ItsNice.Appear();
-                bubbleActive = true;
+                bubble01ItsNice.Appear(NextStep);
                 ObjectsReferrer.instance.mrHorseController.Talk();
                 break;
             case 2:
-                bubble01ItsNice.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
-                break;
-            case 3:
-                bubble02NoHungry.Appear();
+                bubble02NoHungry.Appear(ObjectsReferrer.instance.mrHorseController.EndScene);
                 ObjectsReferrer.instance.mrHorseController.Talk();
                 break;
-            case 4:
-                bubble02NoHungry.Disappear();
-                ObjectsReferrer.instance.mrHorseController.EndScene();
-                SetBubbleNotActiveNextFrame();
-                break;
-            case 5:
-                waitingForAutomaticNextStep = true;
+            case 3:
                 Invoke("NextStep", 1f);
                 break;
-            case 6:
+            case 4:
                 bubble03End.Appear();
-                bubbleActive = true;
                 ObjectsReferrer.instance.mrHorseController.Talk();
                 break;
  
@@ -96,30 +54,8 @@ public class MrHorseBubblesController : MonoBehaviour
         }
     }
 
-    void SetBubbleNotActiveNextFrame()
-    {
-        StartCoroutine(SetBubbleNotActiveNextFrameCoroutine());
-    }
-
-    IEnumerator SetBubbleNotActiveNextFrameCoroutine()
-    {
-        yield return null;
-        bubbleActive = false;
-    }
-
-    void ShowBubble(BubbleController bubbleController){
-        bubbleController.Appear();
-        bubbleControllersActive.Add(bubbleController);
-    }
-
-    void CheckIfBubbleIsNotShownAnyMore()
-    {
-        bubbleControllersActive = bubbleControllersActive.FindAll(e => e.isShown);
-    }
-
-    public bool IsBubbleActive()
-    {
-        return (bubbleActive || bubbleControllersActive.Any());
+    void ShowBubble(BubbleController bubbleController, Action callback = null){
+        bubbleController.Appear(callback);
     }
 
     public void ShowLeftLimitBubble()
@@ -132,15 +68,40 @@ public class MrHorseBubblesController : MonoBehaviour
         ShowBubble(bubble00BImHungry);
     }
 
+    public void ShowTutorial()
+    {
+        ShowBubble(bubbleTutorial01Bite, ShowTutorialWalk);
+    }
+
     public void ShowTutorialWalk()
     {
-        ShowBubble(bubbleTutorial01Walk);
+        ShowBubble(bubbleTutorial02Walk);
     }
 
-    public void ShowTutorialBite()
+    void InitializeBubbleControllersList()
+    {        
+        // I have tried to use some metaprogramming
+        //   to initialize this List but I was not able
+        //   I have tried PropertyInfo but didn't work:
+        // #
+        // var propertyInfos = this.GetType().GetProperties();
+        // foreach (System.Reflection.PropertyInfo propertyInfo in propertyInfos)
+        // {
+        //     bubbleControllers.Add((BubbleController)propertyInfo.GetValue(this, null));
+        // }
+        // #
+
+        bubbleControllers.Add(bubble00AMyHouseDirection);
+        bubbleControllers.Add(bubble00BImHungry);
+        bubbleControllers.Add(bubble01ItsNice);
+        bubbleControllers.Add(bubble02NoHungry);
+        bubbleControllers.Add(bubble03End);
+        bubbleControllers.Add(bubbleTutorial01Bite);
+        bubbleControllers.Add(bubbleTutorial02Walk);
+    }
+
+    public bool AnyBubbleActive()
     {
-        ShowBubble(bubbleTutorial02Bite);
+        return bubbleControllers.Any(e => e.isShown);
     }
-
-    
 }
