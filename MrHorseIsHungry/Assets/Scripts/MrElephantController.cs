@@ -39,7 +39,10 @@ public class MrElephantController : MonoBehaviour
     public void BreadBitten(Collider2D collider2D){
         breadNumBites ++;
         audioSource.PlayOneShot(clipsBreadBite[UnityEngine.Random.Range(0, clipsBreadBite.Length)]);
-        Instantiate(particlesBiteBread, collider2D.transform.position, Quaternion.identity);
+
+        var particles = Instantiate(particlesBiteBread, collider2D.transform.position, Quaternion.identity);
+        Destroy(particles, 10);
+
         RenderBread();
         Invoke("Idle", 0.2f);
     }

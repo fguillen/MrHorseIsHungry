@@ -9,7 +9,7 @@ public class EggController : MonoBehaviour
         if(other.gameObject.CompareTag("MrHorseMouth"))
         {
             print("Egg Bitten");
-            ObjectsReferrer.instance.msHenController.EggBitten();
+            ObjectsReferrer.instance.msHenController.EggBitten(other);
         }
     }
 }

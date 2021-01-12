@@ -19,8 +19,11 @@ public class MsHenController : MonoBehaviour
     [SerializeField] Sprite eggFloorSpriteBites4;
 
     [SerializeField] MsHenBubblesController bubblesController;
+    [SerializeField] ParticleSystem particlesBiteEgg;
+    [SerializeField] AudioClip[] clipsEggBite;
 
     Animator animator;
+    AudioSource audioSource;
 
     public int eggNumBites;
 
@@ -29,18 +32,25 @@ public class MsHenController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
         eggNumBites = 0;
         RenderEgg();
         state = "idle";
     }
 
-    public void EggBitten(){
+    public void EggBitten(Collider2D collider2D){
         eggNumBites ++;
-        RenderEgg();
 
-        if(eggNumBites == 5)
+        if(eggNumBites >= 5)
         {
             Invoke("Idle", 0.5f);
+        } else {
+            RenderEgg();
+
+            audioSource.PlayOneShot(clipsEggBite[UnityEngine.Random.Range(0, clipsEggBite.Length)]);
+            var particles = Instantiate(particlesBiteEgg, collider2D.transform.position, Quaternion.identity);
+            Destroy(particles, 10);
         }
     }
 

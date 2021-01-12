@@ -17,8 +17,10 @@ public class MrHorseController : MonoBehaviour
     [SerializeField] ParticleSystem particlesBiteAir;
     [SerializeField] GameObject mouth;
     [SerializeField] AudioClip[] clipsWalk;
+    [SerializeField] AudioClip[] clipsBite;
     [SerializeField] AudioClip clipRainbowBurp;
-    AudioSource audioSource; 
+    AudioSource audioSourceWalk; 
+    AudioSource audioSourceBite;
 
 
     bool endSceneStarted;
@@ -30,7 +32,8 @@ public class MrHorseController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
+        audioSourceWalk = GetComponents<AudioSource>()[0];
+        audioSourceBite = GetComponents<AudioSource>()[1];
         
         originalScaleX = figure.transform.localScale.x;
         endSceneStarted = false;
@@ -95,7 +98,12 @@ public class MrHorseController : MonoBehaviour
 
     public void BiteCloseMouthEvent()
     {
-        Instantiate(particlesBiteAir, mouth.transform.position, Quaternion.identity);
+        var clip = clipsBite[UnityEngine.Random.Range(0, clipsBite.Length)];
+        audioSourceBite.PlayOneShot(clip);
+        
+        var particles = Instantiate(particlesBiteAir, mouth.transform.position, Quaternion.identity);
+        Destroy(particles, 10);
+
     }
 
     public void CheckShowTutorials()
@@ -154,19 +162,19 @@ public class MrHorseController : MonoBehaviour
 
     void RainbowBurpStarts()
     {
-        audioSource.clip = clipRainbowBurp;
-        audioSource.Play();
+        audioSourceBite.clip = clipRainbowBurp;
+        audioSourceBite.Play();
     }
 
     void RainbowBurpEnds()
     {
-        audioSource.Stop();
+        audioSourceBite.Stop();
     }
 
     void WalkStep()
     {
         var clip = clipsWalk[UnityEngine.Random.Range(0, clipsWalk.Length)];
-        audioSource.PlayOneShot(clip);
+        audioSourceWalk.PlayOneShot(clip);
     }
 
     bool IsSceneFrozen()
