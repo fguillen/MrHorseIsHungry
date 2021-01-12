@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class MrElephantBubblesController : MonoBehaviour
@@ -13,110 +14,65 @@ public class MrElephantBubblesController : MonoBehaviour
     [SerializeField] BubbleController bubble05MoreBread;
     [SerializeField] BubbleController bubble06NoMoreBread;
 
-    public bool bubbleActive;
-    public bool waitingForAutomaticNextStep;
+    List<BubbleController> bubbleControllers;
 
     public int step;
 
     void Start()
     {
         step = 0;
-        SetBubbleNotActiveNextFrame();
-
-        waitingForAutomaticNextStep = false;
-        bubbleActive = false;
+        bubbleControllers = new List<BubbleController>();
+        InitializeBubbleControllersList();
     }
-
-    void Update()
-    {
-        if(bubbleActive && !waitingForAutomaticNextStep && Input.GetButtonDown("Jump"))
-        {
-            print("MrElephantBubblesController Jump");
-            NextStep();
-        }
-    }
-
     public void NextStep()
     {
         step ++;
 
-        print("Mr Elephant step: " + step);
-
-        waitingForAutomaticNextStep = false;
+        print("MrElephant step: " + step);
 
         switch (step)
         {
             case 1:
                 ObjectsReferrer.instance.virtualCameraController.TargetMrElephant();
-                bubble01GoodMorning.Appear();
-                bubbleActive = true;
+                bubble01GoodMorning.Appear(NextStep);
                 ObjectsReferrer.instance.mrElephantController.Talk();
                 break;
             case 2:
-                bubble01GoodMorning.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
-                break;
-            case 3:
                 bubble02WonderfulDay.Appear();
                 ObjectsReferrer.instance.mrElephantController.Talk();
                 break;
-            case 4:
-                bubble02WonderfulDay.Disappear();
-                SetBubbleNotActiveNextFrame();
-                break;
-            case 5:
-                bubble03VigorousAppetite.Appear();
-                bubbleActive = true;
+            case 3:
+                bubble03VigorousAppetite.Appear(NextStep);
                 ObjectsReferrer.instance.mrElephantController.Talk();
                 break;
-            case 6:
-                bubble03VigorousAppetite.Disappear();
-                waitingForAutomaticNextStep = true;
-                Invoke("NextStep", 0.5f);
-                break;
-            case 7:
+            case 4:
                 bubble04SomeBread.Appear();
                 ObjectsReferrer.instance.mrElephantController.Talk();
                 ObjectsReferrer.instance.mrElephantController.OfferBread();
                 break;
-            case 8:
-                bubble04SomeBread.Disappear();
-                SetBubbleNotActiveNextFrame();
-                break;
 
             // Repeat until no more bread :: INI
-            case 9:
+            case 5:
                 bubble05MoreBread.Appear();
-                bubbleActive = true;
                 ObjectsReferrer.instance.mrElephantController.Talk();
                 ObjectsReferrer.instance.mrElephantController.OfferBread();
                 break;
-            case 10:
-                bubble05MoreBread.Disappear();
-                SetBubbleNotActiveNextFrame();
-                break;
-            case 11:
+            case 6:
                 if(ObjectsReferrer.instance.mrElephantController.breadNumBites < 4)
                 {
-                    step = 8;
-                    NextStep();
+                    step = 4;
                 }
+                NextStep();
                 break;
             // Repeat until no more bread :: END
             
             
             // Block repeated infintely :: INI
-            case 12: // No More Bead
+            case 7: // No More Bead
                 ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
                 bubble06NoMoreBread.Appear();
-                bubbleActive = true;
                 ObjectsReferrer.instance.mrElephantController.Talk();
-                break;
-            case 13:
-                bubble06NoMoreBread.Disappear();
-                SetBubbleNotActiveNextFrame();
-                step = 11;
+                step = 6;
                 break;
             // Block repeated infintely :: END
  
@@ -125,14 +81,29 @@ public class MrElephantBubblesController : MonoBehaviour
         }
     }
 
-    void SetBubbleNotActiveNextFrame()
-    {
-        StartCoroutine(SetBubbleNotActiveNextFrameCoroutine());
+    void InitializeBubbleControllersList()
+    {        
+        // I have tried to use some metaprogramming
+        //   to initialize this List but I was not able
+        //   I have tried PropertyInfo but didn't work:
+        // #
+        // var propertyInfos = this.GetType().GetProperties();
+        // foreach (System.Reflection.PropertyInfo propertyInfo in propertyInfos)
+        // {
+        //     bubbleControllers.Add((BubbleController)propertyInfo.GetValue(this, null));
+        // }
+        // #
+
+        bubbleControllers.Add(bubble01GoodMorning);
+        bubbleControllers.Add(bubble02WonderfulDay);
+        bubbleControllers.Add(bubble03VigorousAppetite);
+        bubbleControllers.Add(bubble04SomeBread);
+        bubbleControllers.Add(bubble05MoreBread);
+        bubbleControllers.Add(bubble06NoMoreBread);
     }
 
-    IEnumerator SetBubbleNotActiveNextFrameCoroutine()
+    public bool AnyBubbleActive()
     {
-        yield return null;
-        bubbleActive = false;
+        return bubbleControllers.Any(e => e.isShown);
     }
 }

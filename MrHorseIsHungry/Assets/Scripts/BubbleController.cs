@@ -130,6 +130,8 @@ public class BubbleController : MonoBehaviour
             return;
         }
 
+        audioSource.Stop(); // Be sure there is not any previous effect running
+
         // We choose one that is not the actual one
         if(talkingEffects.Length == 1)
         {
