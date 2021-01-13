@@ -15,7 +15,7 @@ public class CloudsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 position = new Vector3(targetToFollow.position.x + xOffset, transform.position.y, transform.position.y);
+        Vector3 position = new Vector3(targetToFollow.position.x + xOffset, transform.position.y, transform.position.z);
         transform.position = position;
     }
 }

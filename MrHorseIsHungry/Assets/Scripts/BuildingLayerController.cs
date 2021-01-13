@@ -7,6 +7,8 @@ public class BuildingLayerController : MonoBehaviour
     [SerializeField] BuildingController[] buildingTemplates;
     [SerializeField] Transform limitLeft;
     [SerializeField] Transform limitRight;
+    [SerializeField] int renderLayerOrder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +28,12 @@ public class BuildingLayerController : MonoBehaviour
     BuildingController BuildBuilding(Vector3 position)
     {
         print("BuildBuilding at: " + position);
-        var buildingController = buildingTemplates[UnityEngine.Random.Range(0, buildingTemplates.Length)];
-        // buildingController.gameObject.transform.parent = this.gameObject.transform;
-        return buildingController.PlaceBuilding(position);
+        var buildingControllerTemplate = buildingTemplates[UnityEngine.Random.Range(0, buildingTemplates.Length)];
+        BuildingController newBuildingController = buildingControllerTemplate.PlaceBuilding(position, renderLayerOrder);
+
+        newBuildingController.PlaceBuilding(position, renderLayerOrder);
+
+        return newBuildingController;
     }
 
 }

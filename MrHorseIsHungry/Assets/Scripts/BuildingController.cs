@@ -8,11 +8,12 @@ public class BuildingController : MonoBehaviour
     [SerializeField] public Transform anchorLeft;
     [SerializeField] public Transform anchorRight;
     
-    public BuildingController PlaceBuilding(Vector3 position)
+    public BuildingController PlaceBuilding(Vector3 position, int renderLayerOrder)
     {
         var finalPosition = position - anchorLeft.localPosition;
 
         GameObject building = Instantiate(gameObject, finalPosition, Quaternion.identity);
+        building.transform.Find("Figure").GetComponent<SpriteRenderer>().sortingOrder = renderLayerOrder;
 
         return building.GetComponent<BuildingController>();
     }
