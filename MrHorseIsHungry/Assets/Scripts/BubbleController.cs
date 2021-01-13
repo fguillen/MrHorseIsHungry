@@ -35,11 +35,7 @@ public class BubbleController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         originalText = textUI.text;
-
         writtingTimeSeconds = originalText.Length / (float)charactersPerSecond;
-
-        print("Text: " + textUI.text + ", writtingTimeSeconds: " +  writtingTimeSeconds);
-
         state = BubbleState.hidden;
     }
 
