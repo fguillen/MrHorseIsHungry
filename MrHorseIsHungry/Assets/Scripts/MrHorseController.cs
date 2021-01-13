@@ -135,6 +135,7 @@ public class MrHorseController : MonoBehaviour
     public void EndScene()
     {
         animator.SetTrigger("endScene");
+        ObjectsReferrer.instance.virtualCameraController.TargetEnd();
     }
 
     public void EndSceneFinished()
@@ -157,6 +158,7 @@ public class MrHorseController : MonoBehaviour
     {
         if(!imHungryBubbleShown)
         {
+            ObjectsReferrer.instance.audioManagerController.PlayBackgroundMusic();
             bubblesController.ShowImHungryBubble();
             imHungryBubbleShown = true;
         }

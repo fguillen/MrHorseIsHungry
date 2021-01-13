@@ -104,6 +104,6 @@ public class MrElephantBubblesController : MonoBehaviour
 
     public bool AnyBubbleActive()
     {
-        return bubbleControllers.Any(e => e.isShown);
+        return bubbleControllers.Any(e => e.IsActive());
     }
 }

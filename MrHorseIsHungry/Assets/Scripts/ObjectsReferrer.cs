@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectsReferrer : MonoBehaviour
 {
     // Start is called before the first frame update
+    public AudioManagerController audioManagerController;
     public MrHorseController mrHorseController;
     public MrHorseBubblesController mrHorseBubblesController;
     public MsGiraffeController msGiraffeController;

@@ -3,6 +3,16 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 
+enum BubbleState {
+    hidden = 1,
+    fadeInIni = 2,
+    fadeInEnd = 3,
+    writeIni = 4,
+    writeEnd = 5,
+    fadeOutIni = 6,
+    fadeOutEnd = 7
+}
+
 public class BubbleController : MonoBehaviour
 {
     Animator animator;
@@ -12,13 +22,12 @@ public class BubbleController : MonoBehaviour
     float writtingTimeSeconds;
     float startWrittingAt;
 
-    bool finished;
-    public bool isShown;
     Action callback;
 
     [SerializeField] AudioClip[] talkingEffects;
     int lastTalkingEffectIndex;
     AudioSource audioSource;
+    BubbleState state;
     void Start()
     {
         animator = GetComponent<Animator>();       
@@ -30,6 +39,8 @@ public class BubbleController : MonoBehaviour
         writtingTimeSeconds = originalText.Length / (float)charactersPerSecond;
 
         print("Text: " + textUI.text + ", writtingTimeSeconds: " +  writtingTimeSeconds);
+
+        state = BubbleState.hidden;
     }
 
     void Update()
@@ -39,19 +50,27 @@ public class BubbleController : MonoBehaviour
         //     print("break point");
         // }
 
-        if(isShown && !finished)
+        if(
+            state == BubbleState.fadeInEnd ||
+            state == BubbleState.writeIni
+        )
         {
             UpdateText();
         }
 
-        if(isShown && finished && Input.GetButtonDown("Jump"))
+        if(
+            state == BubbleState.writeEnd &&
+            Input.GetButtonDown("Jump")
+        )
         {
             Disappear();
         }
 
-        if(isShown && !finished && Input.GetButtonDown("Jump"))
+        if(
+            state == BubbleState.writeIni && 
+            Input.GetButtonDown("Jump")
+        )
         {
-            textUI.text = originalText;
             FinishWritting();
         }
     }
@@ -90,35 +109,57 @@ public class BubbleController : MonoBehaviour
 
     public void Appear(Action callback = null)
     {
+        print("(BubbleController) Appear: " + gameObject.name);
+        print("(BubbleController) state: " + state);
+        
+        if(state != BubbleState.hidden)
+        {
+            print("ERROR: Bubble is not in hidden state, state: " + state);
+            return;
+        }
+
+        textUI.text = ""; // Set the text to empty during fadeIn
         this.callback = callback;
         animator.SetTrigger("appear");
-        PlayRandomTalkingEffect();
-        finished = false;
-        isShown = true;
+        state = BubbleState.fadeInIni;
         startWrittingAt = Time.time;
     }
 
     public void Disappear()
     {
+        print("(BubbleController) Disappear: " + gameObject.name);
         animator.SetTrigger("disappear");
+        state = BubbleState.fadeOutIni;
         FinishWritting();
     }
 
     public void FinishWritting()
     {
-        finished = true;
+        print("(BubbleController) FinishWritting: " + gameObject.name);
+        textUI.text = originalText;
+        state = BubbleState.writeEnd;
         audioSource.Stop();
     }
 
     void AnimatorEventAppearFinished()
     {
-        // nothing here yet
+        state = BubbleState.fadeInEnd;
+        StartWritting();
+    }
+
+    void StartWritting()
+    {
+        print("(BubbleController) StartWritting: " + gameObject.name);
+        print("(BubbleController) state: " + state);
+        PlayRandomTalkingEffect();
+        state = BubbleState.writeIni;
     }
 
     void AnimatorEventDisappearFinished()
     {
-        isShown = false;
         callback?.Invoke();
+        state = BubbleState.fadeOutEnd; // I know this is not needed but I keep it for consistency
+        state = BubbleState.hidden;
     }
 
     void PlayRandomTalkingEffect()
@@ -141,9 +182,14 @@ public class BubbleController : MonoBehaviour
             audioSource.clip  = clipsNotActual.ElementAt(UnityEngine.Random.Range(0, clipsNotActual.Count()));
         }
 
-        print("Bubble takingEffectClip: " + audioSource.clip.name);
+        print("(BubbleController) Bubble takingEffectClip: " + gameObject.name);
 
         audioSource.Play();   
+    }
+
+    public bool IsActive()
+    {
+        return state != BubbleState.hidden;
     }
 
 }
