@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4252420355509679986
+--- !u!1001 &2623622269905077817
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -35,17 +35,17 @@ PrefabInstance:
     - target: {fileID: 1316285796180040423, guid: 8362c2c279c764f8687ae5036903065a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1316285796180040423, guid: 8362c2c279c764f8687ae5036903065a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1316285796180040423, guid: 8362c2c279c764f8687ae5036903065a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1316285796180040423, guid: 8362c2c279c764f8687ae5036903065a,
         type: 3}
@@ -65,7 +65,28 @@ PrefabInstance:
     - target: {fileID: 1316285796180040424, guid: 8362c2c279c764f8687ae5036903065a,
         type: 3}
       propertyPath: m_Name
-      value: Building_1
+      value: Building Variant 03
       objectReference: {fileID: 0}
+    - target: {fileID: 3499549810794892385, guid: 8362c2c279c764f8687ae5036903065a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.981
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719921701490304888, guid: 8362c2c279c764f8687ae5036903065a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.916
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818122471405363402, guid: 8362c2c279c764f8687ae5036903065a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6783345706101585841, guid: 8362c2c279c764f8687ae5036903065a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4928679635893591497, guid: 046ab9995b8594e44a0d588ddf4506b7,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8362c2c279c764f8687ae5036903065a, type: 3}
