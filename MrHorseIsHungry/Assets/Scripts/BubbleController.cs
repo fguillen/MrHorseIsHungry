@@ -43,7 +43,6 @@ public class BubbleController : MonoBehaviour
     {
         // if(isShown)
         // {
-        //     print("break point");
         // }
 
         if(
@@ -69,6 +68,13 @@ public class BubbleController : MonoBehaviour
         {
             FinishWritting();
         }
+
+        // Workaround to fix the bug that keeps the sound 
+        //  while the bubble is closed
+        if(state == BubbleState.hidden && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     void UpdateText()
@@ -81,7 +87,6 @@ public class BubbleController : MonoBehaviour
 
         if(lettersToShowCount > lettersCount)
         {
-            print("WARNING: lettersToShowCount > lettersCount, lettersToShowCount: " + lettersToShowCount);
             lettersToShowCount = lettersCount;
         }
 
@@ -105,12 +110,9 @@ public class BubbleController : MonoBehaviour
 
     public void Appear(Action callback = null)
     {
-        print("(BubbleController) Appear: " + gameObject.name);
-        print("(BubbleController) state: " + state);
         
         if(state != BubbleState.hidden)
         {
-            print("ERROR: Bubble is not in hidden state, state: " + state);
             return;
         }
 
@@ -123,7 +125,6 @@ public class BubbleController : MonoBehaviour
 
     public void Disappear()
     {
-        print("(BubbleController) Disappear: " + gameObject.name);
         animator.SetTrigger("disappear");
         state = BubbleState.fadeOutIni;
         FinishWritting();
@@ -131,7 +132,6 @@ public class BubbleController : MonoBehaviour
 
     public void FinishWritting()
     {
-        print("(BubbleController) FinishWritting: " + gameObject.name);
         textUI.text = originalText;
         state = BubbleState.writeEnd;
         audioSource.Stop();
@@ -145,8 +145,6 @@ public class BubbleController : MonoBehaviour
 
     void StartWritting()
     {
-        print("(BubbleController) StartWritting: " + gameObject.name);
-        print("(BubbleController) state: " + state);
         PlayRandomTalkingEffect();
         state = BubbleState.writeIni;
     }
@@ -163,7 +161,6 @@ public class BubbleController : MonoBehaviour
         // Not Play if not talking effects
         if(talkingEffects.Length == 0)
         {
-            print("WARNING: there is not talkingEffectClips on this Bubble '" + originalText + "'");
             return;
         }
 
@@ -178,7 +175,6 @@ public class BubbleController : MonoBehaviour
             audioSource.clip  = clipsNotActual.ElementAt(UnityEngine.Random.Range(0, clipsNotActual.Count()));
         }
 
-        print("(BubbleController) Bubble takingEffectClip: " + gameObject.name);
 
         audioSource.Play();   
     }
