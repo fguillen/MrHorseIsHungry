@@ -27,7 +27,6 @@ public class BuildingLayerController : MonoBehaviour
 
     BuildingController BuildBuilding(Vector3 position)
     {
-        print("BuildBuilding at: " + position);
         var buildingControllerTemplate = buildingTemplates[UnityEngine.Random.Range(0, buildingTemplates.Length)];
         BuildingController newBuildingController = buildingControllerTemplate.PlaceBuilding(position, renderLayerOrder);
 

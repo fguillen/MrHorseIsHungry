@@ -284,7 +284,7 @@ MonoBehaviour:
     m_VirtualCamera: {fileID: 938093478}
     m_ActivateAfter: 0
     m_MinDuration: 0
-  - m_FullHash: -1641890008
+  - m_FullHash: 2014564301
     m_VirtualCamera: {fileID: 178166561}
     m_ActivateAfter: 0
     m_MinDuration: 0
@@ -303,11 +303,13 @@ MonoBehaviour:
     m_ParentHash: 756556552
   - m_Hash: -92701266
     m_ParentHash: 756556552
-  - m_Hash: -156260913
-    m_ParentHash: 756556552
   - m_Hash: 1452156112
     m_ParentHash: 756556552
   - m_Hash: -1641890008
+    m_ParentHash: 756556552
+  - m_Hash: -156260913
+    m_ParentHash: 756556552
+  - m_Hash: 2014564301
     m_ParentHash: 756556552
 --- !u!4 &66931363
 Transform:
@@ -11310,9 +11312,9 @@ MonoBehaviour:
   audioSourceMusicCharacter: {fileID: 1562123620}
   musicBackgroundMsGiraffe: {fileID: 8300000, guid: db5c2129c481644698b97faff395736c,
     type: 3}
-  musicBackgroundMrElephant: {fileID: 8300000, guid: 63799d70a3da648dc89957dd122a5184,
+  musicBackgroundMrElephant: {fileID: 8300000, guid: 8781d474e99aa47888a94c3c57b148cb,
     type: 3}
-  musicBackgroundMsHen: {fileID: 8300000, guid: 8781d474e99aa47888a94c3c57b148cb,
+  musicBackgroundMsHen: {fileID: 8300000, guid: 63799d70a3da648dc89957dd122a5184,
     type: 3}
   musicBackgroundEndScene: {fileID: 8300000, guid: a23a76cc8e3d6404d91aed0d0e76325d,
     type: 3}

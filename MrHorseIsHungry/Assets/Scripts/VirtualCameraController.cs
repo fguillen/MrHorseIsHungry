@@ -10,38 +10,41 @@ public class VirtualCameraController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+    
+    [ContextMenu("TargetMrHorse")]
     public void TargetMrHorse()
     {
         print("VirtualCamera target MrHorse");
         ObjectsReferrer.instance.audioManagerController.PlayBackgroundMusic();
-        animator.SetTrigger("mrHorse");
+        animator.SetInteger("cameraTarget", 0);
     }
 
+    [ContextMenu("TargetMsGiraffe")]
     public void TargetMsGiraffe()
     {
         print("VirtualCamera target MrGiraffe");
         ObjectsReferrer.instance.audioManagerController.PlayBackgroundMusicMsGiraffe();
-        animator.SetTrigger("msGiraffe");
+        animator.SetInteger("cameraTarget", 1);
     }
 
     public void TargetMrElephant()
     {
         print("VirtualCamera target MrElephant");
         ObjectsReferrer.instance.audioManagerController.PlayBackgroundMusicMrElephant();
-        animator.SetTrigger("mrElephant");
+        animator.SetInteger("cameraTarget", 2);
     }
 
     public void TargetMsHen()
     {
         print("VirtualCamera target MsHen");
         ObjectsReferrer.instance.audioManagerController.PlayBackgroundMusicMsHen();
-        animator.SetTrigger("msHen");
+        animator.SetInteger("cameraTarget", 3);
     }
 
     public void TargetEnd()
     {
         print("VirtualCamera target End");
         ObjectsReferrer.instance.audioManagerController.PlayBackgroundMusicEndScene();
-        animator.SetTrigger("end");
+        animator.SetInteger("cameraTarget", 4);
     }
 }
