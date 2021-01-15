@@ -5,22 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class UIButtonsController : MonoBehaviour
 {
-    void LoadSceneGame()
+    public void LoadSceneGame()
     {
         SceneManager.LoadScene("Game");
     }
 
-    void LoadSceneMenu()
+    public void LoadSceneMenu()
     {
         SceneManager.LoadScene("Menu");
     }
 
-    void ShowCredits()
+    public void ShowCredits()
     {
         print("ShowCredits");
     }
 
-    void Quit()
+    public void Quit()
     {
         Application.Quit();
     }
