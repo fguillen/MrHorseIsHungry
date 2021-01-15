@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class UIButtonsController : MonoBehaviour
 {
-    public void LoadSceneGame()
+    public void Play()
     {
-        SceneManager.LoadScene("Game");
+        LevelLoaderController.instance.LoadGame();
     }
 
-    public void LoadSceneMenu()
+    public void Menu()
     {
-        SceneManager.LoadScene("Menu");
+        LevelLoaderController.instance.LoadMenu();
     }
 
-    public void ShowCredits()
+    public void Credits()
     {
         print("ShowCredits");
     }

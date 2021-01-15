@@ -18,13 +18,8 @@ public class MouseCursorFollower : MonoBehaviour
     {
         targetPosition0 = new Vector2(limitSW.position.x, limitNE.position.y);
         limitDimensions = new Vector2(limitNE.position.x - limitSW.position.x, limitNE.position.y - limitSW.position.y);
-
-        print("limitSW: " + limitSW.position);
-        print("limitNE: " + limitNE.position);
-        print("targetPosition0: " + targetPosition0);
-        print("limitDimensions: " + limitDimensions);
-        print("limitDimensions: " + limitDimensions);
     }
+    
     void Update()
     {
         if(
@@ -41,7 +36,6 @@ public class MouseCursorFollower : MonoBehaviour
 
     void UpdatePosition()
     {
-        print("Input.mousePosition: " + Input.mousePosition);
         lastMousePosition = Input.mousePosition;
 
         float targetPositionX = lastMousePosition.x * limitDimensions.x / Screen.width;
