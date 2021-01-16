@@ -16,6 +16,7 @@ public class ObjectsReferrer : MonoBehaviour
     public MsHenBubblesController msHenBubblesController;
     public VirtualCameraController virtualCameraController;
     public GameMenuController gameMenuController;
+    public MenuCanvasController menuCanvasController;
     public static ObjectsReferrer instance;
     
     void Awake()

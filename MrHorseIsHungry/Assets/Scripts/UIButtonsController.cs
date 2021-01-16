@@ -17,11 +17,16 @@ public class UIButtonsController : MonoBehaviour
 
     public void Credits()
     {
-        print("ShowCredits");
+        ObjectsReferrer.instance.menuCanvasController.CreditsShow();
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void CreditsClose()
+    {
+        ObjectsReferrer.instance.menuCanvasController.CreditsHide();        
     }
 }
