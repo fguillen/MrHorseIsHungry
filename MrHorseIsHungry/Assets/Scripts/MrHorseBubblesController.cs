@@ -45,6 +45,7 @@ public class MrHorseBubblesController : MonoBehaviour
                 Invoke("NextStep", 1f);
                 break;
             case 4:
+                bubble03End.indestructible = true;
                 bubble03End.Appear();
                 ObjectsReferrer.instance.mrHorseController.Talk();
                 break;

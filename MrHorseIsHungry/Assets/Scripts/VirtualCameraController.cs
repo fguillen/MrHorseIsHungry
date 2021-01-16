@@ -47,4 +47,20 @@ public class VirtualCameraController : MonoBehaviour
         ObjectsReferrer.instance.audioManagerController.PlayBackgroundMusicEndScene();
         animator.SetInteger("cameraTarget", 4);
     }
+
+    public void NextRoundRobinCamera()
+    {        
+        var nextCameraTarget = animator.GetInteger("cameraTarget") + 1;
+
+        // Skip MrHorse camera
+        if(nextCameraTarget == 0){
+            nextCameraTarget = 1;
+        }
+
+        if(nextCameraTarget > 4){
+            nextCameraTarget = 1;
+        }
+
+        animator.SetInteger("cameraTarget", nextCameraTarget);
+    }
 }

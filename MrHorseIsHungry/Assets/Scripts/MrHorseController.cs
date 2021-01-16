@@ -29,6 +29,7 @@ public class MrHorseController : MonoBehaviour
     bool endSceneStarted;
     bool leftLimitReached;
     bool imHungryBubbleShown;
+    bool allowJumpingBetweenCameras;
 
     // Start is called before the first frame update
     void Start()
@@ -88,9 +89,15 @@ public class MrHorseController : MonoBehaviour
         // Fire
         if(
             !IsSceneFrozen() &&
-            Input.GetButtonDown("Jump"))
+            Input.GetButtonDown("Jump")
+        )
         {
             Bite();
+        }
+
+        if(allowJumpingBetweenCameras && Input.GetButtonDown("Jump"))
+        {
+            ObjectsReferrer.instance.virtualCameraController.NextRoundRobinCamera();
         }
     }
 
@@ -141,6 +148,12 @@ public class MrHorseController : MonoBehaviour
     public void EndSceneFinished()
     {
         bubblesController.NextStep();
+        Invoke("AllowJumpingBetweenCameras", 1f);
+    }
+
+    public void AllowJumpingBetweenCameras()
+    {
+        allowJumpingBetweenCameras = true;
     }
 
     public void LeftLimitEnter()

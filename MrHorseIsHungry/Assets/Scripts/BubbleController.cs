@@ -28,6 +28,8 @@ public class BubbleController : MonoBehaviour
     int lastTalkingEffectIndex;
     AudioSource audioSource;
     BubbleState state;
+
+    public bool indestructible;
     void Start()
     {
         animator = GetComponent<Animator>();       
@@ -54,6 +56,7 @@ public class BubbleController : MonoBehaviour
         }
 
         if(
+            !indestructible &&
             state == BubbleState.writeEnd &&
             Input.GetButtonDown("Jump")
         )
