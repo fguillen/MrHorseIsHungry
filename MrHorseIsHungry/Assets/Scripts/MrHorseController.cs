@@ -149,11 +149,17 @@ public class MrHorseController : MonoBehaviour
     {
         bubblesController.NextStep();
         Invoke("AllowJumpingBetweenCameras", 1f);
+        Invoke("ShowGameMenu", 3.5f);
     }
 
     public void AllowJumpingBetweenCameras()
     {
         allowJumpingBetweenCameras = true;
+    }
+
+    public void ShowGameMenu()
+    {
+        ObjectsReferrer.instance.gameMenuController.Appear();
     }
 
     public void LeftLimitEnter()
