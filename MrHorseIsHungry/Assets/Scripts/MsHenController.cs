@@ -27,6 +27,9 @@ public class MsHenController : MonoBehaviour
 
     public int eggNumBites;
 
+    [SerializeField] GameObject characterLeftlimit;
+    [SerializeField] GameObject characterRightlimit;
+
     [SerializeField] string state;
 
     void Start()
@@ -141,5 +144,16 @@ public class MsHenController : MonoBehaviour
             print("MsHen Continue Talking ... NextStep");
             bubblesController.NextStep();
         }
+    }
+    public void ActivateCharacterLimits()
+    {
+        characterLeftlimit.SetActive(true);
+        characterRightlimit.SetActive(true);
+    }
+
+    public void DeactivateCharacterLimits()
+    {
+        characterLeftlimit.SetActive(false);
+        characterRightlimit.SetActive(false);
     }
 }

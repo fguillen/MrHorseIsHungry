@@ -35,6 +35,7 @@ public class MsHenBubblesController : MonoBehaviour
                 ObjectsReferrer.instance.virtualCameraController.TargetMsHen();
                 bubble01Hello.Appear(NextStep);
                 ObjectsReferrer.instance.msHenController.Talk();
+                ObjectsReferrer.instance.msHenController.ActivateCharacterLimits();
                 break;
             case 2:
                 bubble02NiceMorning.Appear();
@@ -70,6 +71,7 @@ public class MsHenBubblesController : MonoBehaviour
                 ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
                 bubble06NoMoreEgg.Appear();
                 ObjectsReferrer.instance.msHenController.Talk();
+                ObjectsReferrer.instance.msHenController.DeactivateCharacterLimits();
                 step = 8;
                 break;
             // Block repeated infintely :: END
