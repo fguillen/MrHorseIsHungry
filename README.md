@@ -1,6 +1,13 @@
 # MrHorse is Hungry
 
-MrHorse is hungry, walking through his neighbourhood he founds very nice neighbours.
+5 minutes surrealist videogame.
+
+_"MrHorse is hungry, walking through his neighbourhood he founds very nice neighbours"_
+
+
+## Demo
+
+- https://arturitoproductions.itch.io/mrhorse-is-hungry
 
 ## Credits
 
@@ -13,3 +20,7 @@ MrHorse is hungry, walking through his neighbourhood he founds very nice neighbo
   - https://freesound.org/s/518384/
   - https://freesound.org/s/415186/
   - https://freesound.org/s/382063/
+
+  ## Code
+
+  - https://github.com/fguillen/MrHorseIsHungry
