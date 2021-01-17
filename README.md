@@ -1,3 +1,7 @@
+# MrHorse is Hungry
+
+MrHorse is hungry, walking through his neighbourhood he founds very nice neighbours.
+
 ## Credits
 
 - Original idea, programming and graphics: alberto bueno
