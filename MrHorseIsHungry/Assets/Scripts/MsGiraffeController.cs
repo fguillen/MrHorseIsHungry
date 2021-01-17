@@ -28,6 +28,8 @@ public class MsGiraffeController : MonoBehaviour
 
     [SerializeField] ParticleSystem particlesBiteApple;
     [SerializeField] AudioClip[] clipsAppleBite;
+    [SerializeField] GameObject characterLeftlimit;
+    [SerializeField] GameObject characterRightlimit;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -171,4 +173,15 @@ public class MsGiraffeController : MonoBehaviour
         }
     }
 
+    public void ActivateCharacterLimits()
+    {
+        characterLeftlimit.SetActive(true);
+        characterRightlimit.SetActive(true);
+    }
+
+    public void DeactivateCharacterLimits()
+    {
+        characterLeftlimit.SetActive(false);
+        characterRightlimit.SetActive(false);
+    }
 }

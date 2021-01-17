@@ -28,6 +28,7 @@ public class MrHorseController : MonoBehaviour
 
     bool endSceneStarted;
     bool leftLimitReached;
+    bool rightLimitReached;
     bool imHungryBubbleShown;
     bool allowJumpingBetweenCameras;
 
@@ -58,6 +59,11 @@ public class MrHorseController : MonoBehaviour
         }
 
         if(horizontal < 0 && leftLimitReached)
+        {
+            horizontal = 0;
+        }
+
+        if(horizontal > 0 && rightLimitReached)
         {
             horizontal = 0;
         }
@@ -172,6 +178,29 @@ public class MrHorseController : MonoBehaviour
     {
         leftLimitReached = false;
     }
+
+    public void CharacterLeftLimitEnter()
+    {
+        bubblesController.ShowSmellsGoodLeftBubble();
+        leftLimitReached = true;
+    }
+
+    public void CharacterLeftLimitExit()
+    {
+        leftLimitReached = false;
+    }
+
+    public void CharacterRightLimitEnter()
+    {
+        bubblesController.ShowSmellsGoodRightBubble();
+        rightLimitReached = true;
+    }
+
+    public void CharacterRightLimitExit()
+    {
+        rightLimitReached = false;
+    }
+
 
     public void ShowImHungryBubble()
     {

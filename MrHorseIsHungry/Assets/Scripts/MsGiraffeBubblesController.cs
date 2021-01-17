@@ -38,6 +38,7 @@ public class MsGiraffeBubblesController : MonoBehaviour
                 ObjectsReferrer.instance.virtualCameraController.TargetMsGiraffe();
                 bubble01GoodMorning.Appear(NextStep);
                 ObjectsReferrer.instance.msGiraffeController.Talk();
+                ObjectsReferrer.instance.msGiraffeController.ActivateCharacterLimits();
                 break;
             case 2:
                 bubble02HowAreYou.Appear();
@@ -76,6 +77,7 @@ public class MsGiraffeBubblesController : MonoBehaviour
                 bubble07NoMoreApples.Appear();
                 ObjectsReferrer.instance.msGiraffeController.Talk();
                 ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
+                ObjectsReferrer.instance.msGiraffeController.DeactivateCharacterLimits();
                 step = 7;
                 break;
             // Block repeated infintely :: END

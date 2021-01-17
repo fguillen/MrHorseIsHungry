@@ -23,7 +23,7 @@ public class HeadTurnController : MonoBehaviour
     {
         float distanceToMrHorse = ObjectsReferrer.instance.mrHorseController.gameObject.transform.position.x - gameObject.transform.position.x;
 
-        if(distanceToMrHorse > 5 && !headPositionBackwards)
+        if(distanceToMrHorse > 3 && !headPositionBackwards)
         {
             animator.SetBool("headBackwards", true);
             headPositionBackwards = true;

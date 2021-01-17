@@ -8,6 +8,8 @@ public class MrHorseBubblesController : MonoBehaviour
 {
     [SerializeField] BubbleController bubble00AMyHouseDirection;
     [SerializeField] BubbleController bubble00BImHungry;
+    [SerializeField] BubbleController bubble00CSmellsGoodLeft;
+    [SerializeField] BubbleController bubble00CSmellsGoodRight;
     [SerializeField] BubbleController bubble01ItsNice;
     [SerializeField] BubbleController bubble02NoHungry;
     [SerializeField] BubbleController bubble03End;
@@ -67,6 +69,16 @@ public class MrHorseBubblesController : MonoBehaviour
     public void ShowImHungryBubble()
     {
         ShowBubble(bubble00BImHungry);
+    }
+
+    public void ShowSmellsGoodLeftBubble()
+    {
+        ShowBubble(bubble00CSmellsGoodLeft);
+    }
+
+    public void ShowSmellsGoodRightBubble()
+    {
+        ShowBubble(bubble00CSmellsGoodRight);
     }
 
     public void ShowTutorial()
