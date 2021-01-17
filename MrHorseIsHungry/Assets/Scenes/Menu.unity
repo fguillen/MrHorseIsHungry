@@ -2586,7 +2586,7 @@ PrefabInstance:
     - target: {fileID: 3531607413107540872, guid: 5ea1e669c65004e0d86b1dabce97722c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3531607413107540872, guid: 5ea1e669c65004e0d86b1dabce97722c,
         type: 3}
@@ -2596,7 +2596,7 @@ PrefabInstance:
     - target: {fileID: 3531607413107540872, guid: 5ea1e669c65004e0d86b1dabce97722c,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3531607413107540872, guid: 5ea1e669c65004e0d86b1dabce97722c,
         type: 3}
@@ -2666,12 +2666,12 @@ PrefabInstance:
     - target: {fileID: 3531607413107540872, guid: 5ea1e669c65004e0d86b1dabce97722c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 342
+      value: -260.8
       objectReference: {fileID: 0}
     - target: {fileID: 3531607413107540872, guid: 5ea1e669c65004e0d86b1dabce97722c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 161.83
+      value: 122.4
       objectReference: {fileID: 0}
     - target: {fileID: 3531607413107540872, guid: 5ea1e669c65004e0d86b1dabce97722c,
         type: 3}
@@ -3176,7 +3176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1485402124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3907,12 +3907,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Original idea, programming and graphics: alberto bueno
-
-    Voice acting:
-    Anfisa Kup
-
-    Music and some sounds effects: https://freesound.org'
+  m_text: "- Original idea, programming and graphics: alberto bueno\n- Voice acting:
+    Anfisa Kup\n\n- Sounds effects: https://freesound.org\n- Chain Sound effect:
+    \"Bike, Chain Spinning, Fast, 02-01.wav\" by InspectorJ (www.jshaw.co.uk) of
+    Freesound.org\n- Music: \n  - https://freesound.org/s/527982/\n  - https://freesound.org/s/518384/\n 
+    - https://freesound.org/s/415186/\n  - https://freesound.org/s/382063/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9f7cf08f391264a5fb4a4b5657279385, type: 2}
   m_sharedMaterial: {fileID: 4875715199375607957, guid: 9f7cf08f391264a5fb4a4b5657279385,
@@ -3940,8 +3939,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 103.7
-  m_fontSizeBase: 103.7
+  m_fontSize: 71
+  m_fontSizeBase: 71
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

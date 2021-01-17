@@ -7,6 +7,9 @@ public class LevelLoaderController : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator animator;
+    AudioSource audioSource;
+    [SerializeField] AudioClip clipChain;
+    [SerializeField] AudioClip clipBang;
     string sceneToLoad;
 
     public static LevelLoaderController instance;
@@ -15,6 +18,7 @@ public class LevelLoaderController : MonoBehaviour
     {
         instance = this;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void LoadGame()
@@ -38,6 +42,28 @@ public class LevelLoaderController : MonoBehaviour
     public void FinishFadeinAnimation()
     {
         print("(LevelLoadController) FinishFadeinAnimation");
-        SceneManager.LoadScene(sceneToLoad);
+        if(sceneToLoad == null)
+        {
+            print("ERROR: sceneToLoad is null");
+        } else
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+    }
+
+    public void PlayChainSound()
+    {
+        audioSource.clip = clipChain;
+        audioSource.Play();
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
+    }
+
+    public void PlaySoundBang()
+    {
+        audioSource.PlayOneShot(clipBang);
     }
 }
