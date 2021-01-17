@@ -106,6 +106,8 @@ public class MrHorseBubblesController : MonoBehaviour
 
         bubbleControllers.Add(bubble00AMyHouseDirection);
         bubbleControllers.Add(bubble00BImHungry);
+        bubbleControllers.Add(bubble00CSmellsGoodLeft);
+        bubbleControllers.Add(bubble00CSmellsGoodRight);
         bubbleControllers.Add(bubble01ItsNice);
         bubbleControllers.Add(bubble02NoHungry);
         bubbleControllers.Add(bubble03End);
