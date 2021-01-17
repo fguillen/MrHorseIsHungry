@@ -36,6 +36,7 @@ public class MrElephantBubblesController : MonoBehaviour
                 ObjectsReferrer.instance.virtualCameraController.TargetMrElephant();
                 bubble01GoodMorning.Appear(NextStep);
                 ObjectsReferrer.instance.mrElephantController.Talk();
+                ObjectsReferrer.instance.mrElephantController.ActivateCharacterLimits();
                 break;
             case 2:
                 bubble02WonderfulDay.Appear();
@@ -72,6 +73,7 @@ public class MrElephantBubblesController : MonoBehaviour
                 ObjectsReferrer.instance.virtualCameraController.TargetMrHorse();
                 bubble06NoMoreBread.Appear();
                 ObjectsReferrer.instance.mrElephantController.Talk();
+                ObjectsReferrer.instance.mrElephantController.DeactivateCharacterLimits();
                 step = 6;
                 break;
             // Block repeated infintely :: END

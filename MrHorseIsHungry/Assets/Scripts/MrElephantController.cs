@@ -25,6 +25,9 @@ public class MrElephantController : MonoBehaviour
     [SerializeField] AudioClip[] clipsBreadBite;
     AudioSource audioSource;
 
+    [SerializeField] GameObject characterLeftlimit;
+    [SerializeField] GameObject characterRightlimit;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -135,6 +138,18 @@ public class MrElephantController : MonoBehaviour
             print("Continue Talking... NextStep");
             bubblesController.NextStep();
         }
+    }
+
+    public void ActivateCharacterLimits()
+    {
+        characterLeftlimit.SetActive(true);
+        characterRightlimit.SetActive(true);
+    }
+
+    public void DeactivateCharacterLimits()
+    {
+        characterLeftlimit.SetActive(false);
+        characterRightlimit.SetActive(false);
     }
 
 }
