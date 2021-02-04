@@ -32,7 +32,7 @@ public class LevelLoaderController : MonoBehaviour
         LoadScene("Menu");
     }
 
-    void LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
         print("(LevelLoadController) LoadScene(): " + sceneName);
         animator.SetTrigger("fadein");

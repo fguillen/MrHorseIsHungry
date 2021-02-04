@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ArturitoProductionsPresents.unity
+    guid: 8058ec06e6b6a440983d85855b585722
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 174380cbd15c54fa0b07b039a58561a4
   - enabled: 1
